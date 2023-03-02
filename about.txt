@@ -1,0 +1,2 @@
+This is the TeamTracker application.
+Contributors: Warren Berlin, Andrew Bish, Peter Bulloch, and Alex Lund.
