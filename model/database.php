@@ -17,6 +17,7 @@ class Database {
         try {// will need to add passwrod if you have one on localhost
             $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->database", $this->username);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           // echo "connected";
         } catch(PDOException $e) {
             die("Connection failed: " .$e->getMessage());
         }
