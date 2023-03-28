@@ -1,5 +1,5 @@
 <?php
-require('model/database.php');
+require_once('/xampp/htdocs/TeamTracker/model/database.php');
 
 Class User {
     //Parameters we might need to add some as we go
@@ -15,18 +15,19 @@ Class User {
     private $authLevel;
 
     //constructor to add all information from the user after login
-    public function __construct($userID, $userName, $password, $firstName, $lastName, $address, $phoneNum, $email, $employeeType, $authLevel)
+    //public function __construct($userID, $userName, $password, $firstName, $lastName, $address, $phoneNum, $email, $employeeType, $authLevel)
+    public function __construct()
     {
-        $this->userID = $userID;
-        $this->userName = $userName;
-        $this->password = $password;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->address = $address;
-        $this->phoneNum = $phoneNum;
-        $this->email = $email;
-        $this->employeeType = $employeeType;
-        $this->authLevel = $authLevel;
+        // $this->userID = $userID;
+        // $this->userName = $userName;
+        // $this->password = $password;
+        // $this->firstName = $firstName;
+        // $this->lastName = $lastName;
+        // $this->address = $address;
+        // $this->phoneNum = $phoneNum;
+        // $this->email = $email;
+        // $this->employeeType = $employeeType;
+        // $this->authLevel = $authLevel;
     }
     //getters
     public function getUserID() {
@@ -75,23 +76,24 @@ Class User {
     }
     public function setUsername($firstName, $lastName) {
         $db = new Database();
-        $
+        
         // Prepare query to check if username already exists
-        $stmt = $db->query('SELECT COUNT(*) FROM users WHERE username = ?' ['username']);
+        $stmt = $db->query('SELECT COUNT(*) FROM users WHERE username = ?', ['username']);
         
         // Generate username based on first initial and last name
         $userName = strtolower(substr($firstName, 0, 1) . $lastName);
         
         // Check if username already exists
-        $stmt->execute(array('username' => $userName));
+        $stmt->execute(array($userName));
         $count = $stmt->fetchColumn();
         
         // If username already exists, append number to end
         if ($count > 0) {
             $i = 1;
+            $new_username = $userName;
             while ($count > 0) {
                 $new_username = $userName . $i;
-                $stmt->execute(array('username' => $new_username));
+                $stmt->execute(array($new_username));
                 $count = $stmt->fetchColumn();
                 $i++;
             }
@@ -99,9 +101,8 @@ Class User {
         }
         $this->userName = $userName;
         return $userName;
-        // Update user's username in the database
-        //$db->query('UPDATE users SET username = ? WHERE firstname = ? AND lastname = ?', [$userName, $firstName, $lastName]);
     }
+    
     public function setPassword($password) {
         $this->password = $password;
     }
