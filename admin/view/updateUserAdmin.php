@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Team Tracker App Users</title>
+	<link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../css/bootstrap-grid.css.map">
+</head>
+
+<body>
+
+	<main>
+		<div class="gridContainer">
+			<!-- The main navigation bar element -->
+			<nav>
+				<ul>
+					<li><a href=".?action=scheduleAdmin">Schedule</a></li>
+					<li><a href=".?action=availAdmin">Availability</a></li>
+					<li><a href=".?action=timeOffAdmin">Time Off</a></li>
+					<li><a href=".?action=userProfileAdmin">Profile</a></li>
+					<li><a href="http://localhost/TeamTracker/admin/">Users</a></li>
+				</ul>
+			</nav>
+
+            <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="bold">Password</p>
+                    </div>
+                    <div class="col">
+                        <p class="bold">First Name</p>
+                    </div>
+                    <div class="col">
+                        <p class="bold">Last Name</p>
+                    </div>
+                    <div class="col">
+                        <p class="bold">Phone</p>
+                    </div>
+                    <div class="col">
+                        <p class="bold">Address</p>
+                    </div>
+                    <div class="col">
+                        <p class="bold">Email</p>
+                    </div>
+                    <div class="col">
+                        <p class="bold">Employee Type</p>
+                    </div>
+                    <div class="col">
+                        <p class="bold">Authority</p>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col">
+                        <p class="bold"><?php echo $userUp['password'] ?></p>
+                    </div>
+                    <div class="col">
+                        <p class="bold"><?php echo $userUp['firstName'] ?></p>
+                    </div>
+                    <div class="col">
+                        <p class="bold"><?php echo $userUp['lastName'] ?></p>
+                    </div>
+                    <div class="col">
+                        <p class="bold"><?php echo $userUp['phoneNumber'] ?></p>
+                    </div>
+                    <div class="col">
+                        <p class="bold"><?php echo $userUp['address'] ?></p>
+                    </div>
+                    <div class="col">
+                        <p class="bold"><?php echo $userUp['email'] ?></p>
+                    </div>
+                    <div class="col">
+                        <p class="bold"><?php echo $userUp['empType'] ?></p>
+                    </div>
+                    <div class="col">
+                        <p class="bold"><?php echo $userUp['authLevel'] ?></p>
+                    </div>
+                </div>
+                    <form action="." method="POST">
+                    <label for="">Please Enter User ID:</label>
+                    <input type="text" name="userID4Update" maxlength="" placeholder="Verify ID" required><br>
+                    <br>
+                    <h4>All areas must be Entered if information is not changing please enter the information above:</h4>
+                    <label for="">Password:</label>
+                    <input type="text" name="updatePassword" maxlength="50" placeholder="New Password" required><br>
+                    <label for="">First Name:</label>
+                    <input type="text" name="updateFName" maxlength="50" placeholder="New First Name" required><br>
+                    <label for="">Last Name:</label>
+                    <input type="text" name="updateLName" maxlength="50" placeholder="New Last Name" required><br>
+                    <label for="">Phone Number:</label>
+                    <input type="text" name="updatePhone" maxlength="15" placeholder="New Phone Number" required><br>
+                    <label for="">Address:</label>
+                    <input type="text" name="updateAddress" maxlength="100" placeholder="New Address" required><br>
+                    <label for="">Email:</label>
+                    <input type="text" name="updateEmail" maxlength="50" placeholder="New Email" required><br>
+                    <label for="">Employee Type:</label>
+                    <input type="text" name="updateType" maxlength="50" placeholder="FullTime/PartTime" required><br>
+                    <label for="">Authority:</label>
+                    <input type="text" name="updateAuth" maxlength="50" placeholder="Authority" required><br>
+                    <br>
+                    <button>Update Employee</button>
+                </form>
+            </div>

@@ -78,14 +78,14 @@ class Database {
             return "$key=?";
         }, array_keys($data)));
         //query
-        $query = "UPDATE $table SET $set WHERE $userID";
+        $query = "UPDATE $table SET $set WHERE $userID=?";
         //prepare statement
         $statement = $this->pdo->prepare($query);
-        //execute statement wher array values are?
-        $statement->execute(array_values($data));
+        //execute statement where array values are?
+        $statement->execute(array_merge(array_values($data), [$userID]));
         //return the rows so we can make sure number of rows update
-        return $statement->rowCount();
     }
+    
     /* to use the above function:
     $updateUser = $db->update('users(or tablename)', ['firstname' => 'andy'],
     'userId = ?' )'

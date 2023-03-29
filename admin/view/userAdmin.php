@@ -18,11 +18,11 @@
 			<!-- The main navigation bar element -->
 			<nav>
 				<ul>
-					<li><a href="scheduleAdm.php">Schedule</a></li>
-					<li><a href="availabilityAdm.php">Availability</a></li>
-					<li><a href="timeOffAdm.php">Time Off</a></li>
-					<li><a href="profileAdm.php">Profile</a></li>
-					<li><a href="user.php">Users</a></li>
+					<li><a href=".?action=scheduleAdmin">Schedule</a></li>
+					<li><a href=".?action=availAdmin">Availability</a></li>
+					<li><a href=".?action=timeOffAdmin">Time Off</a></li>
+					<li><a href=".?action=userProfileAdmin">Profile</a></li>
+					<li><a href="http://localhost/TeamTracker/admin/">Users</a></li>
 				</ul>
 			</nav>
 
@@ -86,10 +86,14 @@
                 </form>
 
             <section>
-                <a href=".?action=addUser">Add Employee</a>
+                <a href=".?action=addUserAdmin">Add Employee</a>
                 <br>
-                <a href=".?action=updateUser">Update Employee</a>
-                <br>
-                <a href=".?action=deleteUser">Delete Employee</a>
+                <form action="." method="POST">
+                    <label for="userIDUpdate">User ID:</label>
+                    <input type="text" name="userIDUpdate" id="userIDUpdate" placeholder="Enter User ID" maxlength="11">
+                    <button type="submit">Update User</button>
+                    <input type="hidden" name="action" value="updateUserAdmin">
+                </form>
+
             </section>
         </div>

@@ -20,7 +20,7 @@
 					<li><a href="availabilityAdm.php">Availability</a></li>
 					<li><a href="timeOffAdm.php">Time Off</a></li>
 					<li><a href="profileAdm.php">Profile</a></li>
-					<li><a href="user.php">Users</a></li>
+					<li><a href="http://localhost/TeamTracker/admin/">Users</a></li>
 				</ul>
 			</nav>
 
