@@ -16,11 +16,11 @@
 		<!-- The main navigation bar element -->
 		<nav>
 			<ul>
-				<li><a class="active" href="scheduleSpv.php">Schedule</a></li>
-				<li><a href="availabilitySpv.php">Availability</a></li>
-				<li><a href="timeOffSpv.php">Time Off</a></li>
-				<li><a href="profileSpv.php">Profile</a></li>
-				<li><a href="../view/login.php">Login</a></li>
+				<li><a href=".?action=scheduleSupv">Schedule</a></li>
+				<li><a href=".?action=availSupv">Availability</a></li>
+				<li><a href=".?action=timeOffSupv">Time Off</a></li>
+				<li><a href=".?action=userProfileSupv">Profile</a></li>
+				<li><a href="http://localhost/TeamTracker/supv/">Users</a></li>
 			</ul>
 		</nav>
 
