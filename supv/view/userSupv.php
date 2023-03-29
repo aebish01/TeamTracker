@@ -79,11 +79,6 @@
                 <?php endforeach ?>
             
             </section>
-            <form action="." method="POST">
-                    <label>UserID:</label>
-                    <input type="text" name="deleteUserID" placeholder="Enter User ID" maxlength="11">
-                    <button>Delete User</button>
-                </form>
 
             <section>
                 <a href=".?action=addUserSupv">Add Employee</a>
