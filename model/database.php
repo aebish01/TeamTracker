@@ -78,11 +78,12 @@ class Database {
             return "$key=?";
         }, array_keys($data)));
         //query
-        $query = "UPDATE $table SET $set WHERE $userID=?";
+        $query = "UPDATE $table SET $set WHERE userId=$userID";
         //prepare statement
         $statement = $this->pdo->prepare($query);
         //execute statement where array values are?
-        $statement->execute(array_merge(array_values($data), [$userID]));
+        $statement->execute(array_values($data));
+
         //return the rows so we can make sure number of rows update
     }
     

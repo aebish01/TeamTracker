@@ -16,10 +16,10 @@
         <!-- The main navigation bar element -->
         <nav>
             <ul>
-                <li><a href="scheduleEmp.php">Schedule</a></li>
-                <li><a href="availabilityEmp.php">Availability</a></li>
-                <li><a class="active" href="timeOffEmp.php">Time Off</a></li>
-                <li><a href="profileEmp.php">Profile</a></li>
+                <li><a href=".?action=scheduleEmp">Schedule</a></li>
+                <li><a href=".?action=availEmp">Availability</a></li>
+                <li><a href=".?action=timeOffEmp">Time Off</a></li>
+                <li><a href=".?action=userProfileEmp">Profile</a></li>
                 <li><a href="../view/login.php">Login</a></li>
             </ul>
         </nav>

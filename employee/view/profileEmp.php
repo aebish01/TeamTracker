@@ -16,10 +16,10 @@
 			<!-- The main navigation bar element -->
 			<nav>
 				<ul>
-					<li><a href="scheduleEmp.php">Schedule</a></li>
-					<li><a href="availabilityEmp.php">Availability</a></li>
-					<li><a href="timeOffEmp.php">Time Off</a></li>
-					<li><a class="active" href="profileEmp.php">Profile</a></li>
+					<li><a href=".?action=scheduleEmp">Schedule</a></li>
+					<li><a href=".?action=availEmp">Availability</a></li>
+					<li><a href=".?action=timeOffEmp">Time Off</a></li>
+					<li><a href=".?action=userProfileEmp">Profile</a></li>
 					<li><a href="../view/login.php">Login</a></li>
 				</ul>
 			</nav>
@@ -28,23 +28,23 @@
 			<div class="gridItem usersLayout">
 
 				<div class="usersInfo">
-					<div class="uGrid-name">Supervisor 1</div>
+					<div class="uGrid-name">Welcome <?php echo $user['firstName'] ?></div>
 					<div class="uGrid-item1">First Name :</div>
-					<div class="uGrid-item2">Place</div>
+					<div class="uGrid-item2"><?php echo $user['firstName'] ?></div>
 					<div class="uGrid-item3">Department :</div>
 					<div class="uGrid-item4">Front End</div>
 					<div class="uGrid-item5">Last Name :</div>
-					<div class="uGrid-item6">Holder</div>
+					<div class="uGrid-item6"><?php echo $user['lastName'] ?></div>
 					<div class="uGrid-item7">Position :</div>
-					<div class="uGrid-item8">Supervisor</div>
+					<div class="uGrid-item8"><?php echo $user['authLevel'] ?></div>
 					<div class="uGrid-item9">Phone :</div>
-					<div class="uGrid-item10">777-777-7777</div>
+					<div class="uGrid-item10"><?php echo $user['phoneNumber'] ?></div>
 					<div class="uGrid-item11">Pay-Grade :</div>
-					<div class="uGrid-item12">Full-Time</div>
+					<div class="uGrid-item12"><?php echo $user['empType'] ?></div>
 					<div class="uGrid-item13">Email :</div>
-					<div class="uGrid-item14">example@fhsu</div>
-					<div class="uGrid-item15">Start Date :</div>
-					<div class="uGrid-item16">01-01-2020</div>
+					<div class="uGrid-item14"><?php echo $user['email'] ?></div>
+					<div class="uGrid-item15">User ID :</div>
+					<div class="uGrid-item16"><?php echo $user['userId'] ?></div>
 				</div>
 
 			</div>
