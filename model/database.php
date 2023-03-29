@@ -22,6 +22,16 @@ class Database {
             die("Connection failed: " .$e->getMessage());
         }
     }
+    /* this is a query all function */
+    public function queryAll($table) {
+        $query = 'SELECT * FROM ' . $table;
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+        $infos = $statement->fetchAll();
+        $statement->closeCursor();
+        return $infos;
+    }
+
     /*this function is a query function that accepts the select query
     and parameters for the select statement  */
     public function query($query, $params = array()) {
@@ -68,14 +78,14 @@ class Database {
             return "$key=?";
         }, array_keys($data)));
         //query
-        $query = "UPDATE $table SET $set WHERE $userID";
+        $query = "UPDATE $table SET $set WHERE $userID=?";
         //prepare statement
         $statement = $this->pdo->prepare($query);
-        //execute statement wher array values are?
-        $statement->execute(array_values($data));
+        //execute statement where array values are?
+        $statement->execute(array_merge(array_values($data), [$userID]));
         //return the rows so we can make sure number of rows update
-        return $statement->rowCount();
     }
+    
     /* to use the above function:
     $updateUser = $db->update('users(or tablename)', ['firstname' => 'andy'],
     'userId = ?' )'
@@ -84,13 +94,13 @@ class Database {
     //last but not least delete user
     public function delete($table, $userID) {
          //query
-        $query = "DELETE FROM $table WHERE $userID";
+        $query = "DELETE FROM $table WHERE userId = $userID";
         //prepare statement
         $statement = $this->pdo->prepare($query);
         //execute statement
         $statement->execute();
         //return rowcount
-        return $statement->rowCount();
+        //return $statement->rowCount();
     }
     /* to use above function:
     $deleteUser = $db->delete('users(or tablename)', 'userId = ?');
