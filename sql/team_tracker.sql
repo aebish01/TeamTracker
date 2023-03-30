@@ -35,7 +35,7 @@ CREATE TABLE `company` (
 -- Table structure for table users
 --
 
-CREATE TABLE users (
+CREATE TABLE `users` (
   `userId` int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `userName` varchar(25) NOT NULL,
   `password` varchar(12) NOT NULL,
@@ -49,13 +49,13 @@ CREATE TABLE users (
   role ENUM('admin', 'manager', 'employee') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE time_slots (
+CREATE TABLE `time_slots` (
   `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `start_time` DATETIME NOT NULL,
   `end_time` DATETIME NOT NULL
 );
 
-CREATE TABLE user_time_slots (
+CREATE TABLE `user_time_slots` (
   `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `user_id` INT(11) UNSIGNED NOT NULL,
   `time_slot_id` INT(11) UNSIGNED NOT NULL,
