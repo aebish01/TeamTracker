@@ -1,14 +1,7 @@
-/*
-With this schema, you can store information about users, their roles, and their contact information in the users table. The time_slots table contains 
-start and end times for each available time slot, and the user_time_slots table assigns users to specific time slots on specific dates. 
-*/
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table clock
---
+-- /*
+-- With this schema, you can store information about users, their roles, and their contact information in the users table. The time_slots table contains 
+-- start and end times for each available time slot, and the user_time_slots table assigns users to specific time slots on specific dates. 
+-- */
 
 CREATE TABLE `clock` (
   `userID` int(11) NOT NULL,
@@ -17,11 +10,7 @@ CREATE TABLE `clock` (
   `atWork` tinyint(1) NOT NULL
 );
 
--- --------------------------------------------------------
 
---
--- Table structure for table company
---
 
 CREATE TABLE `company` (
   `companyId` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -29,11 +18,7 @@ CREATE TABLE `company` (
   `openHours` int(11) NOT NULL
 );
 
--- --------------------------------------------------------
 
---
--- Table structure for table users
---
 
 CREATE TABLE `users` (
   `userId` int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -45,9 +30,9 @@ CREATE TABLE `users` (
   `phoneNumber` int(10) NOT NULL,
   `email` varchar(50) NOT NULL,
   `empType` varchar(20) NOT NULL,
-  `authLevel` int(11) NOT NULL,
-  role ENUM('admin', 'manager', 'employee') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `authLevel` int(4) NOT NULL,
+  role ENUM('admin', 'supervisor', 'manager', 'employee') NOT NULL
+);
 
 CREATE TABLE `time_slots` (
   `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -64,9 +49,12 @@ CREATE TABLE `user_time_slots` (
   FOREIGN KEY (time_slot_id) REFERENCES time_slots(id)
 );
 
-/*
-For updating data, you can use INSERT, UPDATE, and DELETE queries. Here's an example of how you could assign a user to a time slot:
-*/
-UPDATE schedule SET user_id = 123 WHERE date = '2023-04-01' AND time_slot = '09:00:00';
-UPDATE schedule SET user_id = 123 WHERE date = '2023-04-01' AND time_slot = '09:00:00';
-DELETE FROM schedule WHERE user_id = 123 AND date = '2023-04-01' AND time_slot = '09:00:00';
+-- /* Populating database */
+INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
+VALUES ('bLoblaw',  'bLob123', 'Bob', 'Loblaw', '123 Wallaby Way', 1234567890, 'bLoblaw@bobLoblaw@Loblaw.com', 'admin', '1', 'admin');
+
+INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
+VALUES ('tParker',  'tParker123', 'Trey', 'Parker', '1020 South Park Road', 1234567891, 'tparker@southparkstudios.cc', 'manager', '2', 'manager');
+
+INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
+VALUES ('dVu',  'dVuCSCI', 'Dr.', 'Vu', '1 FHSU Place', 1234567892, 'drvu@fhsu.edu', 'supervisor', '3', 'supervisor');
