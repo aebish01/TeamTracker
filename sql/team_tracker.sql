@@ -1,30 +1,13 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Mar 09, 2023 at 08:21 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+/*
+With this schema, you can store information about users, their roles, and their contact information in the users table. The time_slots table contains 
+start and end times for each available time slot, and the user_time_slots table assigns users to specific time slots on specific dates. 
+*/
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `team_tracker`
---
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clock`
+-- Table structure for table clock
 --
 
 CREATE TABLE `clock` (
@@ -32,28 +15,28 @@ CREATE TABLE `clock` (
   `date` date NOT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `atWork` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `company`
+-- Table structure for table company
 --
 
 CREATE TABLE `company` (
-  `companyId` int(11) NOT NULL,
+  `companyId` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `departments` int(11) NOT NULL,
   `openHours` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table users
 --
 
-CREATE TABLE `users` (
-  `userId` int(11) NOT NULL,
+CREATE TABLE users (
+  `userId` int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `userName` varchar(25) NOT NULL,
   `password` varchar(12) NOT NULL,
   `firstName` varchar(25) NOT NULL,
@@ -62,42 +45,28 @@ CREATE TABLE `users` (
   `phoneNumber` int(10) NOT NULL,
   `email` varchar(50) NOT NULL,
   `empType` varchar(20) NOT NULL,
-  `authLevel` int(11) NOT NULL
+  `authLevel` int(11) NOT NULL,
+  role ENUM('admin', 'manager', 'employee') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Indexes for dumped tables
---
+CREATE TABLE time_slots (
+  `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `start_time` DATETIME NOT NULL,
+  `end_time` DATETIME NOT NULL
+);
 
---
--- Indexes for table `company`
---
-ALTER TABLE `company`
-  ADD PRIMARY KEY (`companyId`);
+CREATE TABLE user_time_slots (
+  `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `user_id` INT(11) UNSIGNED NOT NULL,
+  `time_slot_id` INT(11) UNSIGNED NOT NULL,
+  `date` DATE NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(userId),
+  FOREIGN KEY (time_slot_id) REFERENCES time_slots(id)
+);
 
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`userId`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `company`
---
-ALTER TABLE `company`
-  MODIFY `companyId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*
+For updating data, you can use INSERT, UPDATE, and DELETE queries. Here's an example of how you could assign a user to a time slot:
+*/
+UPDATE schedule SET user_id = 123 WHERE date = '2023-04-01' AND time_slot = '09:00:00';
+UPDATE schedule SET user_id = 123 WHERE date = '2023-04-01' AND time_slot = '09:00:00';
+DELETE FROM schedule WHERE user_id = 123 AND date = '2023-04-01' AND time_slot = '09:00:00';
