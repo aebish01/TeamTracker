@@ -10,11 +10,11 @@ start and end times for each available time slot, and the user_time_slots table 
 -- Table structure for table clock
 --
 
-CREATE TABLE clock (
-  user_id int(11) NOT NULL,
-  cur_date date NOT NULL,
-  cur_time timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  atWork tinyint(1) NOT NULL
+CREATE TABLE `clock` (
+  `userID` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `atWork` tinyint(1) NOT NULL
 );
 
 -- --------------------------------------------------------
@@ -23,10 +23,10 @@ CREATE TABLE clock (
 -- Table structure for table company
 --
 
-CREATE TABLE company (
-  company_id int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-  departments int(11) NOT NULL,
-  openHours int(11) NOT NULL
+CREATE TABLE `company` (
+  `companyId` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `departments` int(11) NOT NULL,
+  `openHours` int(11) NOT NULL
 );
 
 -- --------------------------------------------------------
@@ -36,31 +36,31 @@ CREATE TABLE company (
 --
 
 CREATE TABLE users (
-  id int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-  userName varchar(25) NOT NULL,
-  password varchar(12) NOT NULL,
-  firstName varchar(25) NOT NULL,
-  lastName varchar(25) NOT NULL,
-  address varchar(80) NOT NULL,
-  phoneNumber int(10) NOT NULL,
-  email varchar(50) NOT NULL,
-  empType varchar(20) NOT NULL,
-  authLevel int(11) NOT NULL,
+  `userId` int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `userName` varchar(25) NOT NULL,
+  `password` varchar(12) NOT NULL,
+  `firstName` varchar(25) NOT NULL,
+  `lastName` varchar(25) NOT NULL,
+  `address` varchar(80) NOT NULL,
+  `phoneNumber` int(10) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `empType` varchar(20) NOT NULL,
+  `authLevel` int(11) NOT NULL,
   role ENUM('admin', 'manager', 'employee') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE time_slots (
-  id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  start_time DATETIME NOT NULL,
-  end_time DATETIME NOT NULL
+  `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `start_time` DATETIME NOT NULL,
+  `end_time` DATETIME NOT NULL
 );
 
 CREATE TABLE user_time_slots (
-  id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  user_id INT(11) UNSIGNED NOT NULL,
-  time_slot_id INT(11) UNSIGNED NOT NULL,
-  date DATE NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(id),
+  `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `user_id` INT(11) UNSIGNED NOT NULL,
+  `time_slot_id` INT(11) UNSIGNED NOT NULL,
+  `date` DATE NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(userId),
   FOREIGN KEY (time_slot_id) REFERENCES time_slots(id)
 );
 
