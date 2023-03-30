@@ -12,6 +12,7 @@ function updateProfile($db, $userID){
     $user = $result->fetch();
     return $user;
 }
+
 //fix phone number 
 //fix email
 //fix auth level

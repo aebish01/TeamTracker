@@ -20,7 +20,7 @@
                 <li><a href=".?action=availEmp">Availability</a></li>
                 <li><a href=".?action=timeOffEmp">Time Off</a></li>
                 <li><a href=".?action=userProfileEmp">Profile</a></li>
-                <li><a href="../view/login.php">Login</a></li>
+                <li><a href="http://localhost/TeamTracker/employee/">Clock In/Out</a></li>
             </ul>
         </nav>
 

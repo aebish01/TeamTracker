@@ -8,6 +8,35 @@ $user = new User();
 $db = new Database();
 // profile
 $userID  = 7;
+//variables
+$clockIn = filter_input(INPUT_POST, 'userIDClockIn', FILTER_VALIDATE_INT);
+$clockOut = filter_input(INPUT_POST, 'userIDClockOut', FILTER_VALIDATE_INT);
+
+//add to clock in 
+if($clockIn) {
+    $timezone = 'America/Chicago';
+    date_default_timezone_set($timezone);
+    $date = date('Y-m-d');
+    $time = date('Y-m-d H:i:s');
+    $db->insert('clock', [
+        'userID' => $clockIn,
+        'date' => $date,
+        'time' => $time,
+        'atWork' => true
+    ]);
+}
+if($clockOut) {
+    $timezone = 'America/Chicago';
+    date_default_timezone_set($timezone);
+    $date = date('Y-m-d');
+    $time = date('Y-m-d H:i:s');
+    $db->insert('clock', [
+        'userID' => $clockOut,
+        'date' => $date,
+        'time' => $time,
+        'atWork' => false
+    ]);
+}
 // action
 $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW);
 if (!$action) {
@@ -27,9 +56,14 @@ switch ($action) {
     case "scheduleEmp" :
         include('view/scheduleEmp.php');
         break;
-    default:
+    case "userProfileEmp":
         $user = displayProfile($db, $userID);
         include('view/profileEmp.php');
+        break;
+    default :
+        $check = $db->checkAtWork($userID);
+        $clocks = $db->queryAllClock('clock', $userID);
+        include('view/clock.php');
 }
 
 ?>

@@ -32,6 +32,15 @@ class Database {
         return $infos;
     }
 
+    public function queryAllClock($table, $userID) {
+        $query = 'SELECT * FROM ' . $table . ' WHERE userID = ' . $userID . ' ORDER BY date ASC';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+        $infos = $statement->fetchAll();
+        $statement->closeCursor();
+        return $infos;
+    }
+
     /*this function is a query function that accepts the select query
     and parameters for the select statement  */
     public function query($query, $params = array()) {
@@ -42,6 +51,23 @@ class Database {
         //return the statement
         return $statement;
     }
+    
+    public function checkAtWork($userID) {
+        $query = 'SELECT atWork FROM clock WHERE userID = :userID AND time = (SELECT MAX(time) FROM clock WHERE userID = :userID)';
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':userID', $userID);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        // if ($row) {
+        //   return $row['atWork'];
+        // } else {
+        //   return false;
+        // }
+        return $row;
+      }
+      
+      
+
     /*example of how to use above function would be:
     $result = $db->query('SELECT * FROM *datatable* WHERE *tableitem* = ?', [info for params]);
     $user = $results-fetch(PDO::FETCH_ASSOC);  */
