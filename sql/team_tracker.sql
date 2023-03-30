@@ -10,15 +10,11 @@ CREATE TABLE `clock` (
   `atWork` tinyint(1) NOT NULL
 );
 
-
-
 CREATE TABLE `company` (
   `companyId` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `departments` int(11) NOT NULL,
   `openHours` int(11) NOT NULL
 );
-
-
 
 CREATE TABLE `users` (
   `userId` int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
