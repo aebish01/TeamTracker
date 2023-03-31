@@ -7,7 +7,7 @@ require('model/employeeModel.php');
 $user = new User();
 $db = new Database();
 // profile
-$userID  = 7;
+$userID  = 1;
 //variables
 $clockIn = filter_input(INPUT_POST, 'userIDClockIn', FILTER_VALIDATE_INT);
 $clockOut = filter_input(INPUT_POST, 'userIDClockOut', FILTER_VALIDATE_INT);

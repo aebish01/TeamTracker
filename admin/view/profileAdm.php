@@ -16,10 +16,10 @@
 			<!-- The main navigation bar element -->
 			<nav>
 				<ul>
-					<li><a href="scheduleAdm.php">Schedule</a></li>
-					<li><a href="availabilityAdm.php">Availability</a></li>
-					<li><a href="timeOffAdm.php">Time Off</a></li>
-					<li><a href="profileAdm.php">Profile</a></li>
+					<li><a href=".?action=scheduleAdmin">Schedule</a></li>
+					<li><a href=".?action=availAdmin">Availability</a></li>
+					<li><a href=".?action=timeOffAdmin">Time Off</a></li>
+					<li><a href=".?action=userProfileAdmin">Profile</a></li>
 					<li><a href="http://localhost/TeamTracker/admin/">Users</a></li>
 				</ul>
 			</nav>
@@ -32,13 +32,39 @@
 					<div class="uGrid-item1">First Name :</div>
 					<div class="uGrid-item2"><?php echo $user['firstName'] ?></div>
 					<div class="uGrid-item3">Department :</div>
-					<div class="uGrid-item4">Front End</div>
+					<div class="uGrid-item4">
+						<?php if($user['authLevel'] == 1) {
+								echo "Administration";
+							} elseif($user['authLevel'] == 2) {
+								echo "Team Management";
+							} else {
+								echo "Front End";
+							}					
+						?>
+					</div>
 					<div class="uGrid-item5">Last Name :</div>
 					<div class="uGrid-item6"><?php echo $user['lastName'] ?></div>
 					<div class="uGrid-item7">Position :</div>
-					<div class="uGrid-item8"><?php echo $user['authLevel'] ?></div>
+					<div class="uGrid-item8">
+						<?php if($user['authLevel'] == 1) {
+							echo "Administrator";
+						} elseif($user['authLevel'] == 2) {
+							echo "Supervisor";
+						} else {
+							echo "Employee";
+						}					
+					?></div>
 					<div class="uGrid-item9">Phone :</div>
-					<div class="uGrid-item10"><?php echo $user['phoneNumber'] ?></div>
+					<div class="uGrid-item10">
+					<?php 
+						$phone = $user['phoneNumber'];
+						$formattedPhone = sprintf("(%s)%s-%s",
+						substr($phone, 0, 3),
+						substr($phone, 3, 3),
+						substr($phone, 6, 4)
+						);
+						echo $formattedPhone;
+					?></div>
 					<div class="uGrid-item11">Pay-Grade :</div>
 					<div class="uGrid-item12"><?php echo $user['empType'] ?></div>
 					<div class="uGrid-item13">Email :</div>

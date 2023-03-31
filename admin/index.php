@@ -7,7 +7,7 @@ require('model/adminModel.php');
 $user = new User();
 $db = new Database();
 // profile
-$userID  = 1;
+$userID  = 9;
 //for delete
 $delUser = filter_input(INPUT_POST, 'deleteUserID', FILTER_VALIDATE_INT);
 //for add

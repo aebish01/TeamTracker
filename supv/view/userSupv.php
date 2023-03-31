@@ -26,8 +26,17 @@
 				</ul>
 			</nav>
 
-            <section>
             <div class="container">
+                
+                <a href=".?action=addUserSupv">
+                    <button>Add User</button>
+                </a><br><br>
+                <form action="." method="POST">
+                    <label for="userIDUpdate">Update User By ID:</label>
+                    <input type="text" name="userIDUpdate" id="userIDUpdate" placeholder="Enter User ID To Update" maxlength="11">
+                    <button type="submit">Update User</button>
+                    <input type="hidden" name="action" value="updateUserSupv">
+                </form>
                 <div class="row">
                     <div class="col">
                         <p class="bold">User ID</p>
@@ -77,18 +86,9 @@
                     </div>
                 </div>
                 <?php endforeach ?>
-            
-            </section>
-
-            <section>
-                <a href=".?action=addUserSupv">Add Employee</a>
-                <br>
                 <form action="." method="POST">
-                    <label for="userIDUpdate">User ID:</label>
-                    <input type="text" name="userIDUpdate" id="userIDUpdate" placeholder="Enter User ID" maxlength="11">
-                    <button type="submit">Update User</button>
-                    <input type="hidden" name="action" value="updateUserSupv">
+                    <label>Delete User By ID:</label>
+                    <input type="text" name="deleteUserID" placeholder="Enter User ID To Delete" maxlength="11">
+                    <button>Delete User</button>
                 </form>
-
-            </section>
-        </div>
+            </div>

@@ -18,11 +18,11 @@
 			<!-- The main navigation bar element -->
 			<nav>
 				<ul>
-					<li><a href="scheduleAdm.php">Schedule</a></li>
-					<li><a href="availabilityAdm.php">Availability</a></li>
-					<li><a href="timeOffAdm.php">Time Off</a></li>
-					<li><a href="profileAdm.php">Profile</a></li>
-					<li><a href="user.php">Users</a></li>
+                    <li><a href=".?action=scheduleAdmin">Schedule</a></li>
+					<li><a href=".?action=availAdmin">Availability</a></li>
+					<li><a href=".?action=timeOffAdmin">Time Off</a></li>
+					<li><a href=".?action=userProfileAdmin">Profile</a></li>
+					<li><a href="http://localhost/TeamTracker/admin/">Users</a></li>
 				</ul>
 			</nav>
         <div class="container">
