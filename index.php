@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+session_start();
 //required files
 require('model/database.php');
 //database
@@ -20,6 +22,20 @@ $db = new Database();
 //else if user name and password are wrong
 //advise employee to see supervisor
 
-
-
-?>
+if (isset($_SESSION["userID"])) {
+    switch ($_SESSION["authlvl"]) {
+        case 1:
+            header("Location: admin/index.php");
+            break;
+        case 2:
+            header("Location: supv/index.php");
+            break;
+        case 3:
+            header("Location: employee/index.php");
+            break;
+        default:
+            header("Location: view/login.php");
+    }
+} else {
+    header("Location: view/login.php");
+}

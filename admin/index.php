@@ -1,4 +1,5 @@
 <?php
+session_start();
 //other files
 require_once('/xampp/htdocs/TeamTracker/model/User.php');
 require_once('/xampp/htdocs/TeamTracker/model/database.php');
@@ -7,7 +8,7 @@ require('model/adminModel.php');
 $user = new User();
 $db = new Database();
 // profile
-$userID  = 9;
+$userID  = $_SESSION["userID"];
 //for delete
 $delUser = filter_input(INPUT_POST, 'deleteUserID', FILTER_VALIDATE_INT);
 //for add
@@ -124,5 +125,3 @@ switch ($action) {
 //     $user = displayProfile($db, $userID);
 //     include('/xampp/htdocs/TeamTracker/admin/view/profileAdm.php');
 // }
-?>
-
