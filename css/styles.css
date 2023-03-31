@@ -511,6 +511,27 @@ h1 {
 	width: 100px;
 	float: right;
 }
+.addInputF {
+	margin-left: 75px;
+}
+.addInputL {
+	margin-left: 76px;
+}
+.addInputA {
+	margin-left: 102px;
+}
+.addInputP {
+	margin-left: 50px;
+}
+.addInputE {
+	margin-left: 108px;
+}
+.addInputT {
+	margin-left: 46px;
+}
+.addInputAU {
+	margin-left: 84px;
+}
 
 
 /* Footer styles ------------------------------------------------------------------------------*/

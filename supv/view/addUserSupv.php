@@ -28,19 +28,19 @@
         <div class="container">
             <form action="." method="POST">
                 <label for="">First Name:</label>
-                <input type="text" name="addFName" maxlength="50" placeholder="First Name" required><br>
+                <input class="addInputF" type="text" name="addFName" maxlength="50" placeholder="First Name" required><br>
                 <label for="">Last Name:</label>
-                <input type="text" name="addLName" maxlength="50" placeholder="Last Name" required><br>
+                <input class="addInputL" type="text" name="addLName" maxlength="50" placeholder="Last Name" required><br>
                 <label for="">Adress:</label>
-                <input type="text" name="addAddress" maxlength="100" placeholder="Address" required><br>
+                <input class="addInputA" type="text" name="addAddress" maxlength="100" placeholder="Address" required><br>
                 <label for="">Phone Number:</label>
-                <input type="text" name="addPhone" maxlength="15" placeholder="Phone Number" required><br>
+                <input class="addInputP" type="text" name="addPhone" maxlength="15" placeholder="Phone Number" required><br>
                 <label for="">Email:</label>
-                <input type="text" name="addEmail" maxlength="50" placeholder="Email" required><br>
+                <input class="addInputE" type="text" name="addEmail" maxlength="50" placeholder="Email" required><br>
                 <label for="">Employee Type:</label>
-                <input type="text" name="addType" maxlength="50" placeholder="FullTime/PartTime" required><br>
+                <input class="addInputT" type="text" name="addType" maxlength="50" placeholder="FullTime/PartTime" required><br>
                 <label for="">Authority:</label>
-                <input type="text" name="addAuth" maxlength="50" placeholder="Authority" required><br>
+                <input class="addInputAU" type="text" name="addAuth" maxlength="50" placeholder="Authority" required><br>
                 <br>
                 <button>Add Employee</button>
             </form>
