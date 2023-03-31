@@ -31,8 +31,7 @@
 
         <!-- The div elemnent to display the Time Off Form -->
         <div class="gridItem timeOff">
-            <!-- What working form tag would look like:  <form class="TOForm" action="foldername/nameOfYourFile.php" method="post"> -->
-            <form class="TOForm">
+            <form action="../model/timeoffControl.php" method="post" class="TOForm">
                 <!-- Start Date Select ------------------------------>
                 <div class="formItem startDate">
                     <label for="sDay">Start Day:</label>
@@ -71,18 +70,18 @@
                     </select>
                     <label for="sMonth">Start Month:</label>
                     <select name="sMonth" id="sMonth">
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
                     </select>
                     <label for="sYear">Start Year:</label>
                     <select name="sYear" id="sYear">
@@ -134,18 +133,18 @@
                     </select>
                     <label for="eMonth">End Month:</label>
                     <select name="eMonth" id="eMonth">
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
                     </select>
                     <label for="eYear">End Year:</label>
                     <select name="eYear" id="eYear">
@@ -162,7 +161,7 @@
                 <!-- Type of Request ----------------------------------->
                 <div class="formItem type">
                     <label for="timeOff">Type:</label>
-                    <select name="TO_Request" id="timeOff">
+                    <select name="type" id="timeOff">
                         <option value="Off No Pay">Off No Pay</option>
                         <option value="Vacation">Vacation</option>
                         <option value="Sick">Sick</option>
@@ -176,7 +175,7 @@
                 </div>
                 <!-- Submit Request ------------------------------------>
                 <div class="enter">
-                    <input type="submit" value="Submit">
+                    <input name="submit" type="submit" value="Submit">
                 </div>
             </form>
         </div>
