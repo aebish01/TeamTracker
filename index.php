@@ -34,8 +34,8 @@ if (isset($_SESSION["userID"])) {
             header("Location: employee/index.php");
             break;
         default:
-            header("Location: login/");
+            header("Location: view/login.php");
     }
 } else {
-    header("Location: login/");
+    header("Location: view/login.php");
 }
