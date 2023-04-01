@@ -1,4 +1,5 @@
 <?php
+session_start();
 //rewuired files
 require_once('/xampp/htdocs/TeamTracker/model/User.php');
 require_once('/xampp/htdocs/TeamTracker/model/database.php');
@@ -7,7 +8,7 @@ require('model/employeeModel.php');
 $user = new User();
 $db = new Database();
 // profile
-$userID  = 1;
+$userID  = $_SESSION["userID"];
 //variables
 $clockIn = filter_input(INPUT_POST, 'userIDClockIn', FILTER_VALIDATE_INT);
 $clockOut = filter_input(INPUT_POST, 'userIDClockOut', FILTER_VALIDATE_INT);
@@ -65,5 +66,3 @@ switch ($action) {
         $clocks = $db->queryAllClock('clock', $userID);
         include('view/clock.php');
 }
-
-?>

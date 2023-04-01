@@ -21,6 +21,11 @@
 				<li><a href=".?action=timeOffSupv">Time Off</a></li>
 				<li><a href=".?action=userProfileSupv">Profile</a></li>
 				<li><a href="http://localhost/TeamTracker/supv/">Users</a></li>
+				<p></p>
+				<h2>Hello, <?php echo $_SESSION["name"]; ?></h2>
+				<form class="logout" action="../model/logout.php">
+					<button class="button" type="submit" name="submit">Logout</button>
+				</form>
 			</ul>
 		</nav>
 

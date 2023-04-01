@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('/xampp/htdocs/TeamTracker/model/User.php');
 require_once('/xampp/htdocs/TeamTracker/model/database.php');
 require('model/supvModel.php');
@@ -7,7 +7,7 @@ require('model/supvModel.php');
 $user = new User();
 $db = new Database();
 // profile
-$userID  = 1;
+$userID  = $_SESSION["userID"];
 //for delete
 $delUser = filter_input(INPUT_POST, 'deleteUserID', FILTER_VALIDATE_INT);
 //for add
@@ -116,5 +116,3 @@ switch ($action) {
         $users = $db->queryAll('users');
         include('/xampp/htdocs/TeamTracker/supv/view/userSupv.php');
 }
-
-?>
