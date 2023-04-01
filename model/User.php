@@ -68,6 +68,9 @@ Class User {
     }
 
     //setters 
+    public function setUserId($userID) {
+        $this->userID = $userID;
+    }
     public function setFirstName($firstName) {
         $this->firstName = $firstName;
     }

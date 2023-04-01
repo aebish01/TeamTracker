@@ -1,13 +1,32 @@
 <?php
-session_start();
+
+//other files
 require_once('/xampp/htdocs/TeamTracker/model/User.php');
 require_once('/xampp/htdocs/TeamTracker/model/database.php');
 require('model/supvModel.php');
+require_once('/xampp/htdocs/TeamTracker/model/Login.class.php');
+//require_once('/xampp/htdocs/TeamTracker/model/loginControl.php');
 //objects
-$user = new User();
+// Start session
+session_start();
 $db = new Database();
-// profile
-$userID  = $_SESSION["userID"];
+$user = new User();
+// Check if user is logged in
+if (!isset($_SESSION['userID'])) {
+    // Redirect to login page
+    header('Location: http://localhost/TeamTracker/view/login.php');
+    exit;
+}
+
+// Get user ID from session
+$sessionUserID = $_SESSION['userID'];
+
+// Create user object and set user ID
+$user = new User();
+$user->setUserId($sessionUserID);
+
+// Get user ID from user object
+$UserID = $user->getUserID();
 //for delete
 $delUser = filter_input(INPUT_POST, 'deleteUserID', FILTER_VALIDATE_INT);
 //for add
@@ -100,7 +119,7 @@ switch ($action) {
         include('view/updateUserSupv.php');
         break;
     case "userProfileSupv" :
-        $user = displayProfile($db, $userID);
+        $user = displayProfile($db, $UserID);
         include('view/profileSpv.php');
         break;
     case "timeOffSupv" :
