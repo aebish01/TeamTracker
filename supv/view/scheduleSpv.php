@@ -17,7 +17,7 @@
 		<nav>
 			<ul>
 				<li><a href=".?action=scheduleSupv">Schedule</a></li>
-				<li><a href=".?action=availSupv">Availability</a></li>
+				<li><a href=".?action=availSupv">Requests</a></li>
 				<li><a href=".?action=timeOffSupv">Time Off</a></li>
 				<li><a href=".?action=userProfileSupv">Profile</a></li>
 				<li><a href="http://localhost/TeamTracker/supv/">Users</a></li>
@@ -95,10 +95,7 @@
 
 		</div>
 
-		<!-- <div class="gridItem userButtons">
-			<button class="button" onclick="addUser()">Add User</button>
-			<button class="button" onclick="deleteUser()">Delete User</button>
-		</div> -->
+		<div></div>
 
 		<!-- The footer elemnent to display basic team information -->
 		<footer>
@@ -112,7 +109,7 @@
 		<!-- End of the grid container -->
 	</div>
 
-	<!-- <div class="clickMenu">
+	<div class="clickMenu">
 		<div class="content">
 			<ul class="menu">
 				<li class="item">
@@ -141,9 +138,9 @@
 				</li>
 			</ul>
 		</div>
-	</div> -->
+	</div>
 
-	<script src="scripts/main.js"></script>
+	<script src="../view/scripts/main.js"></script>
 
 </body>
 

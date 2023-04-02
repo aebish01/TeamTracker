@@ -17,10 +17,15 @@
         <nav>
             <ul>
                 <li><a href=".?action=scheduleSupv">Schedule</a></li>
-                <li><a href=".?action=availSupv">Availability</a></li>
+                <li><a href=".?action=availSupv">Requests</a></li>
                 <li><a href=".?action=timeOffSupv">Time Off</a></li>
                 <li><a href=".?action=userProfileSupv">Profile</a></li>
                 <li><a href="http://localhost/TeamTracker/supv/">Users</a></li>
+                <p></p>
+                <h2>Hello, <?php echo $_SESSION["name"]; ?></h2>
+                <form class="logout" action="../model/logout.php">
+                    <button class="button" type="submit" name="submit">Logout</button>
+                </form>
             </ul>
         </nav>
 
@@ -30,7 +35,7 @@
         </div>
 
         <!-- The div elemnent to display the Time Off Form -->
-        <div class="gridItem timeOff">
+        <div class="gridItem">
             <form action="../model/timeoffControl.php" method="post" class="TOForm">
                 <!-- Start Date Select ------------------------------>
                 <div class="formItem startDate">
@@ -179,6 +184,8 @@
                 </div>
             </form>
         </div>
+
+        <div></div>
 
         <!-- The footer elemnent to display basic team information -->
         <footer>

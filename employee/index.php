@@ -14,7 +14,7 @@ $clockIn = filter_input(INPUT_POST, 'userIDClockIn', FILTER_VALIDATE_INT);
 $clockOut = filter_input(INPUT_POST, 'userIDClockOut', FILTER_VALIDATE_INT);
 
 //add to clock in 
-if($clockIn) {
+if ($clockIn) {
     $timezone = 'America/Chicago';
     date_default_timezone_set($timezone);
     $date = date('Y-m-d');
@@ -26,7 +26,7 @@ if($clockIn) {
         'atWork' => true
     ]);
 }
-if($clockOut) {
+if ($clockOut) {
     $timezone = 'America/Chicago';
     date_default_timezone_set($timezone);
     $date = date('Y-m-d');
@@ -48,21 +48,21 @@ if (!$action) {
 }
 //switch between actions
 switch ($action) {
-    case "timeOffEmp" :
+    case "timeOffEmp":
         include('view/timeOffEmp.php');
         break;
-    case "availEmp" :
+    case "availEmp":
         include('view/availabilityEmp.php');
         break;
-    case "scheduleEmp" :
+    case "scheduleEmp":
         include('view/scheduleEmp.php');
         break;
     case "userProfileEmp":
         $user = displayProfile($db, $userID);
         include('view/profileEmp.php');
         break;
-    default :
+    default:
         $check = $db->checkAtWork($userID);
         $clocks = $db->queryAllClock('clock', $userID);
-        include('view/clock.php');
+        include('view/scheduleEmp.php');
 }

@@ -17,10 +17,15 @@
         <nav>
             <ul>
                 <li><a href=".?action=scheduleSupv">Schedule</a></li>
-                <li><a href=".?action=availSupv">Availability</a></li>
+                <li><a href=".?action=availSupv">Requests</a></li>
                 <li><a href=".?action=timeOffSupv">Time Off</a></li>
                 <li><a href=".?action=userProfileSupv">Profile</a></li>
                 <li><a href="http://localhost/TeamTracker/supv/">Users</a></li>
+                <p></p>
+                <h2>Hello, <?php echo $_SESSION["name"]; ?></h2>
+                <form class="logout" action="../model/logout.php">
+                    <button class="button" type="submit" name="submit">Logout</button>
+                </form>
             </ul>
         </nav>
 
@@ -29,14 +34,26 @@
             Pending Time Off Requests
         </div>
 
-        <div class="requestList">
-            <?php
-            include_once("../model/database.php");
-            include_once("../model/Requests.class.php");
-            $requests = new Request();
-            $requests->findPending();
-            ?>
+        <div class="gridItem" style="justify-self: center">
+            <div class="requestList">
+                <p class="requestHeader">FirstName</p>
+                <p class="requestHeader">LastName</p>
+                <p class="requestHeader">Start Date</p>
+                <p class="requestHeader">End Date</p>
+                <p class="requestHeader">Type</p>
+                <p class="requestHeader">Reason</p>
+                <p class="requestHeader">Approve</p>
+                <p class="requestHeader">Deny</p>
+                <?php
+                include_once("../model/database.php");
+                include_once("../model/Requests.class.php");
+                $requests = new Request();
+                $requests->findPending();
+                ?>
+            </div>
         </div>
+
+        <div></div>
 
         <!-- The footer elemnent to display basic team information -->
         <footer>

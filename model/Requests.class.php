@@ -11,15 +11,15 @@ class Request extends Database
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 extract($row);
 
-                echo "  <div class='request'>
+                echo "
                             <p>$firstName</p>
                             <p>$lastName</p>
                             <p>$startDate</p>
                             <p>$endDate</p>
                             <p>$type</p>
                             <p>$message</p>
-                            <button class='button'>Approve</button>
-                        </div>";
+                            <button>Approve</button>
+                            <button>Deny</button>";
             }
             return;
         } else {

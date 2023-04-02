@@ -17,12 +17,21 @@
 			<nav>
 				<ul>
 					<li><a href=".?action=scheduleSupv">Schedule</a></li>
-					<li><a href=".?action=availSupv">Availability</a></li>
+					<li><a href=".?action=availSupv">Requests</a></li>
 					<li><a href=".?action=timeOffSupv">Time Off</a></li>
 					<li><a href=".?action=userProfileSupv">Profile</a></li>
 					<li><a href="http://localhost/TeamTracker/supv/">Users</a></li>
+					<p></p>
+					<h2>Hello, <?php echo $_SESSION["name"]; ?></h2>
+					<form class="logout" action="../model/logout.php">
+						<button class="button" type="submit" name="submit">Logout</button>
+					</form>
 				</ul>
 			</nav>
+
+			<div class="gridItem availDescription">
+				Personal Profile
+			</div>
 
 			<!--The div elemnent to display the schedule-->
 			<div class="gridItem usersLayout">
@@ -33,38 +42,39 @@
 					<div class="uGrid-item2"><?php echo $user['firstName'] ?></div>
 					<div class="uGrid-item3">Department :</div>
 					<div class="uGrid-item4">
-						<?php if($user['authLevel'] == 1) {
-								echo "Administration";
-							} elseif($user['authLevel'] == 2) {
-								echo "Team Management";
-							} else {
-								echo "Front End";
-							}					
+						<?php if ($user['authLevel'] == 1) {
+							echo "Administration";
+						} elseif ($user['authLevel'] == 2) {
+							echo "Team Management";
+						} else {
+							echo "Front End";
+						}
 						?>
 					</div>
 					<div class="uGrid-item5">Last Name :</div>
 					<div class="uGrid-item6"><?php echo $user['lastName'] ?></div>
 					<div class="uGrid-item7">Position :</div>
 					<div class="uGrid-item8">
-						<?php if($user['authLevel'] == 1) {
-								echo "Administrator";
-							} elseif($user['authLevel'] == 2) {
-								echo "Supervisor";
-							} else {
-								echo "Employee";
-							}					
+						<?php if ($user['authLevel'] == 1) {
+							echo "Administrator";
+						} elseif ($user['authLevel'] == 2) {
+							echo "Supervisor";
+						} else {
+							echo "Employee";
+						}
 						?>
 					</div>
 					<div class="uGrid-item9">Phone :</div>
 					<div class="uGrid-item10">
-						<?php 
-							$phone = $user['phoneNumber'];
-							$formattedPhone = sprintf("(%s)%s-%s",
+						<?php
+						$phone = $user['phoneNumber'];
+						$formattedPhone = sprintf(
+							"(%s)%s-%s",
 							substr($phone, 0, 3),
 							substr($phone, 3, 3),
 							substr($phone, 6, 4)
-							);
-							echo $formattedPhone;
+						);
+						echo $formattedPhone;
 						?>
 					</div>
 					<div class="uGrid-item11">Pay-Grade :</div>
@@ -76,6 +86,8 @@
 				</div>
 
 			</div>
+
+			<div></div>
 
 			<!--The footer elemnent to display basic team information information-->
 			<footer>
