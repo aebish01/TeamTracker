@@ -95,21 +95,21 @@
                     <br>
                     <h4>All areas must be Entered if information is not changing please enter the information above:</h4>
                     <label for="">Password:</label>
-                    <input type="text" name="updatePassword" maxlength="50" placeholder="New Password" required><br>
+                    <input class="addInputPass" type="text" name="updatePassword" maxlength="50" placeholder="New Password" required><br>
                     <label for="">First Name:</label>
-                    <input type="text" name="updateFName" maxlength="50" placeholder="New First Name" required><br>
+                    <input class="addInputF" type="text" name="updateFName" maxlength="50" placeholder="New First Name" required><br>
                     <label for="">Last Name:</label>
-                    <input type="text" name="updateLName" maxlength="50" placeholder="New Last Name" required><br>
+                    <input class="addInputL" type="text" name="updateLName" maxlength="50" placeholder="New Last Name" required><br>
                     <label for="">Phone Number:</label>
-                    <input type="text" name="updatePhone" maxlength="15" placeholder="New Phone Number" required><br>
+                    <input class="addInputP" type="text" name="updatePhone" maxlength="15" placeholder="New Phone Number" required><br>
                     <label for="">Address:</label>
-                    <input type="text" name="updateAddress" maxlength="100" placeholder="New Address" required><br>
+                    <input class="upInputA" type="text" name="updateAddress" maxlength="100" placeholder="New Address" required><br>
                     <label for="">Email:</label>
-                    <input type="text" name="updateEmail" maxlength="50" placeholder="New Email" required><br>
+                    <input class="addInputE" type="text" name="updateEmail" maxlength="50" placeholder="New Email" required><br>
                     <label for="">Employee Type:</label>
-                    <input type="text" name="updateType" maxlength="50" placeholder="FullTime/PartTime" required><br>
+                    <input class="addInputT" type="text" name="updateType" maxlength="50" placeholder="FullTime/PartTime" required><br>
                     <label for="">Authority:</label>
-                    <input type="text" name="updateAuth" maxlength="50" placeholder="Authority" required><br>
+                    <input class="addInputAU" type="text" name="updateAuth" maxlength="50" placeholder="Authority" required><br>
                     <br>
                     <button>Update Employee</button>
                 </form>

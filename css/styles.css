@@ -666,6 +666,12 @@ h1 {
 	color: #ccc;
 	background: #303a99;
 }
+.addInputPass {
+	margin-left: 86px;
+}
+.upInputA {
+	margin-left: 95px;
+}
 
 
 /* Footer styles ------------------------------------------------------------------------------*/
