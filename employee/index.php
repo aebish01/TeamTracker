@@ -1,38 +1,20 @@
 <?php
-
-//other files
+session_start();
+//rewuired files
 require_once('/xampp/htdocs/TeamTracker/model/User.php');
 require_once('/xampp/htdocs/TeamTracker/model/database.php');
 require('model/employeeModel.php');
-require_once('/xampp/htdocs/TeamTracker/model/Login.class.php');
-//require_once('/xampp/htdocs/TeamTracker/model/loginControl.php');
 //objects
-// Start session
-session_start();
+$user = new User();
 $db = new Database();
-$user = new User();
-// Check if user is logged in
-if (!isset($_SESSION['userID'])) {
-    // Redirect to login page
-    header('Location: http://localhost/TeamTracker/view/login.php');
-    exit;
-}
-
-// Get user ID from session
-$sessionUserID = $_SESSION['userID'];
-
-// Create user object and set user ID
-$user = new User();
-$user->setUserId($sessionUserID);
-
-// Get user ID from user object
-$UserID = $user->getUserID();
+// profile
+$userID  = $_SESSION["userID"];
 //variables
 $clockIn = filter_input(INPUT_POST, 'userIDClockIn', FILTER_VALIDATE_INT);
 $clockOut = filter_input(INPUT_POST, 'userIDClockOut', FILTER_VALIDATE_INT);
 
 //add to clock in 
-if($clockIn) {
+if ($clockIn) {
     $timezone = 'America/Chicago';
     date_default_timezone_set($timezone);
     $date = date('Y-m-d');
@@ -44,7 +26,7 @@ if($clockIn) {
         'atWork' => true
     ]);
 }
-if($clockOut) {
+if ($clockOut) {
     $timezone = 'America/Chicago';
     date_default_timezone_set($timezone);
     $date = date('Y-m-d');
@@ -66,21 +48,21 @@ if (!$action) {
 }
 //switch between actions
 switch ($action) {
-    case "timeOffEmp" :
+    case "timeOffEmp":
         include('view/timeOffEmp.php');
         break;
-    case "availEmp" :
+    case "availEmp":
         include('view/availabilityEmp.php');
         break;
-    case "scheduleEmp" :
+    case "scheduleEmp":
         include('view/scheduleEmp.php');
         break;
     case "userProfileEmp":
-        $user = displayProfile($db, $UserID);
+        $user = displayProfile($db, $userID);
         include('view/profileEmp.php');
         break;
-    default :
-        $check = $db->checkAtWork($UserID);
-        $clocks = $db->queryAllClock('clock', $UserID);
+    default:
+        $check = $db->checkAtWork($userID);
+        $clocks = $db->queryAllClock('clock', $userID);
         include('view/clock.php');
 }

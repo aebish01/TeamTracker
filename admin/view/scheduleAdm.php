@@ -17,7 +17,7 @@
 		<nav>
 			<ul>
 				<li><a href=".?action=scheduleAdmin">Schedule</a></li>
-				<li><a href=".?action=availAdmin">Availability</a></li>
+				<li><a href=".?action=availAdmin">Requests</a></li>
 				<li><a href=".?action=timeOffAdmin">Time Off</a></li>
 				<li><a href=".?action=userProfileAdmin">Profile</a></li>
 				<li><a href="http://localhost/TeamTracker/admin/">Users</a></li>
@@ -30,8 +30,8 @@
 		</nav>
 
 		<!-- The div elemnent to display the date currently being displayed -->
-		<div class="gridItem dateSelect">
-			<h1>Monday Feb 23, 2023</h1>
+		<div class="gridItem availDescription">
+			Monday Feb 23, 2023
 		</div>
 
 		<!-- The div elemnent to display the schedule -->
@@ -100,6 +100,8 @@
 			<button class="button" onclick="deleteUser()">Delete User</button>
 		</div> -->
 
+		<div></div>
+
 		<!-- The footer elemnent to display basic team information -->
 		<footer>
 			<p>
@@ -112,7 +114,7 @@
 		<!-- End of the grid container -->
 	</div>
 
-	<!-- <div class="clickMenu">
+	<div class="clickMenu">
 		<div class="content">
 			<ul class="menu">
 				<li class="item">
@@ -141,9 +143,9 @@
 				</li>
 			</ul>
 		</div>
-	</div> -->
+	</div>
 
-	<script src="scripts/main.js"></script>
+	<script src="../view/scripts/main.js"></script>
 
 </body>
 
