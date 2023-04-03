@@ -1,0 +1,849 @@
+/* General styles -----------------------------------------------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1.3;
+	margin: 0;
+	background-color: rgb(32, 32, 32);
+}
+
+.button {
+	background: #ccc;
+	color: black;
+	padding: 0.7rem 1.2rem;
+	text-decoration: none;
+	border: 0;
+	border-radius: 5px;
+	width: 10rem;
+	font-size: 1.3rem;
+}
+
+.button:hover {
+	background: #adadad;
+}
+
+select {
+	margin: 3px;
+	border-radius: 5px;
+	background: #ccc;
+	padding: 0.7rem;
+	font-size: 1rem;
+}
+
+.gridContainer {
+	display: grid;
+	grid-template-rows: auto auto auto 1fr auto;
+	gap: 2.5rem;
+	min-height: 100vh;
+}
+
+
+/* Nav Bar styles ----------------------------------------------------------------------------*/
+nav {
+	justify-self: center;
+	width: 98%;
+	display: flex;
+}
+
+nav ul {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	align-content: center;
+	margin-top: 1.5rem;
+	padding: 0;
+	width: 100%;
+	border-radius: 5px;
+	list-style: none;
+	background-image: linear-gradient(to right, #034ea2, #8b0d88); 
+}
+
+
+nav a {
+	display: block;
+	color: #ccc;
+	font-size: 2em;
+	padding: 0.8rem;
+	text-align: center;
+	text-decoration: none;
+}
+
+nav a:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.active {
+	background-color:rgb(32, 32, 32);
+}
+
+.navbar {
+	justify-self: center;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	align-content: center;
+	margin-top: 1rem;
+	padding: 0;
+	width: 98%;
+	border-radius: 5px;
+	background-image: linear-gradient(to right, #034ea2, #8b0d88);
+}
+
+.navItem {
+	display: block;
+	color: #ccc;
+	text-align: center;
+	text-decoration: none;
+}
+
+.navItem:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navButton {
+	background: transparent;
+	border: none;
+	padding: 1.2rem;
+	color: #ccc;
+	font-size: 2rem;
+	width: 100%;
+	height: 100%;
+}
+
+h2 {
+	margin: 0;
+	display: block;
+	color: #ccc;
+	font-size: 1.8em;
+	text-align: center;
+	align-self: center;
+}
+
+.logout {
+	display:flex;
+	justify-content: center;
+	align-self: center;
+}
+
+/* Schedule Page styles ----------------------------------------------------------------------*/
+
+.gridItem {
+	justify-self: center;
+	display: grid;
+	background: rgb(70, 70, 70);
+	border-radius: 10px;
+	width: 90%;
+	border: 15px solid rgba(100, 100, 100, 0);
+	box-shadow: -3px 3px 5px rgba(255, 255, 255, 0.3);
+}
+
+/* for date display above table */
+.dateSelect {
+	justify-self: center;
+	align-self: center;
+	text-align: center;
+	color: #ccc;
+	padding: 1rem 0 1rem 0;
+	width: 70%;
+	font-size: 1.3rem;
+}
+
+h1 {
+	margin-block-start: 0.2rem;
+	margin-block-end: 0.2rem;
+}
+
+/* the schedule box itself */
+.schedule {
+	grid-template-columns: repeat(14, minmax(10rem, auto));
+	grid-auto-rows: minmax(5.5rem, auto);
+	justify-self: center;
+	width: 90%;
+	overflow: auto;
+	border-radius: 25px;
+}
+
+.scheduleItems {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid rgba(100, 100, 100, 0.15);
+	background-color: #ccc;
+}
+
+/* classes for the different types of baxes in the table */
+/* Top row with lested open hours */
+.openHours {
+	background-color: #8b0d88;
+	color: #ccc;
+	text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+	font-size: 1.5rem;
+}
+
+.openHours p {
+	margin: 0;
+}
+
+/* left side user display column */
+.users {
+	background-color: #303a99;
+	color: #ccc;
+	text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+	font-size: 1.4rem;
+}
+
+/* classes for the boxes that display the actual shift times */
+.shiftSlots {
+	padding: 1.5rem 0rem;
+	width: 75%;
+	border: hidden;
+	border-radius: 5px;
+}
+
+.shiftSlots p {
+	margin: 0;
+	font-size: 1.2rem;
+}
+
+
+/* different task classes for schedule --------------------------------------------------------*/
+.desk1 {
+	background-image: radial-gradient(rgba(255, 165, 0, 0.7), rgba(255, 165, 0, 0.4));
+}
+
+.desk2 {
+	background-image: radial-gradient(rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.4));
+}
+
+.desk3 {
+	background-image:  radial-gradient(rgba(218, 112, 214, 0.7), rgba(218, 112, 214, 0.4));
+}
+
+.lunch {
+	background-image: radial-gradient(rgba(255, 255, 0, 0.7), rgba(255, 255, 0, 0.4));
+}
+
+.meeting {
+	background-image: radial-gradient(rgba(255, 105, 180, 0.7), rgba(255, 105, 180, 0.4));
+}
+
+.offDesk {
+	background-image: radial-gradient(rgba(124, 252, 0, 0.7), rgba(124, 252, 0, 0.4));
+}
+
+
+.userButtons {
+	justify-self: center;
+	display: flex;
+	justify-content: space-around;
+	margin-top: 2rem;
+	padding: 1rem;
+	width: 50%;
+}
+
+/* Availability Page Styles ---------------------------------------------------------------*/
+.availDescription {
+	color: #ccc;
+	font-size: 2.5rem;
+	justify-self: center;
+	align-self: center;
+	text-align: center;
+	width: 60%;
+}
+
+.availability {
+	justify-self: center;
+}
+
+.availForm {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(10rem, auto));
+	grid-auto-rows: minmax(4rem, auto);
+	justify-content: space-around;
+	align-content: space-around;
+	gap: 15px;
+	width: 90%;
+}
+
+.availDays {
+	background: #303a99;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+
+.availDays:nth-child(even) {
+	background: #8b0d88;
+}
+
+.availEnter {
+	grid-column: span 1;
+	grid-row: span 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	justify-self: center;
+	align-self: center;
+}
+
+.availEnter input {
+	width: 90%;
+	padding: 10px;
+	border-radius: 10px;
+	background: #ccc;
+	font-size: 1.2rem;
+}
+
+/* Time Off Page Styles ------------------------------------------------------------------ */
+.timeOff {
+	justify-self: center;
+}
+
+.TOForm {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(8rem, auto));
+	grid-auto-rows: minmax(3rem, auto);
+	justify-self: center;
+	/*justify-content: space-around;*/
+	align-content: space-around;
+	gap: 30px;
+	width: 100%;
+}
+
+.formItem {
+	padding: 20px;
+	border: none;
+	border-radius: 10px;
+	color: #ccc;
+	font-size: 1.3rem;
+	box-shadow: -3px 3px 5px rgba(255, 255, 255, 0.3);
+}
+
+.startDate {
+	grid-column: span 1;
+	grid-row: span 1;
+	background: #303a99;
+}
+
+.endDate {
+	grid-column: 1/ 2;
+	grid-row: span 1;
+	background: #303a99;
+}
+
+.type {
+	grid-column: 1 / 2;
+	grid-row: span 1;
+	background: #303a99;
+}
+
+.reason {
+	grid-column: 2 / 3;
+	grid-row: 1 / 4;
+	background: #8b0d88;
+}
+
+.reason textarea {
+	border-radius: 10px;
+	background: #ccc;
+	padding: 1rem;
+	font-size: 1rem;
+}
+
+.enter {
+	grid-column: span 2;
+	grid-row: span 1;
+	display: flex;
+	justify-content: center;
+}
+
+.enter input {
+	width: 50%;
+	border-radius: 10px;
+	background: #ccc;
+	font-size: 1.2rem;
+}
+
+
+/* Time Off Request Lists -------------------------------------------*/
+.requestList {
+	justify-self: center;
+	display: grid;
+	grid-template-columns: repeat(8, minmax(6rem, auto));
+	grid-auto-rows: minmax(4.5rem, auto);
+	margin: 1rem;
+	padding: 0.5rem;
+	overflow: auto;
+	background: #ccc;
+	border-radius: 10px;
+	width: 90%;
+	overflow: auto;
+}
+
+.requestList p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 1rem;
+	font-size: 1.3rem;
+}
+
+.requestList button {
+	justify-self: center;
+	margin: 0.5rem;
+	background: #929292;
+	color: black;
+	text-decoration: none;
+	border: 0;
+	border-radius: 5px;
+	width: 10rem;
+	font-size: 1.3rem;
+}
+
+.requestList button:hover {
+	background: #e6e6e6;
+}
+
+.requestHeader {
+	color: #ccc;
+	background: #303a99;
+	font-weight: bold;
+}
+
+/* Users Page Styles ------------------------------------------------*/
+/* container for page content */
+.usersLayout {
+	justify-self: center;
+	grid-template-columns: repeat(5, minmax(8rem, auto));
+	grid-auto-rows: minmax(3rem, auto);
+	justify-content: space-around;
+	align-content: center;
+}
+
+/* styles for user sidebar list */
+.usersList {
+	grid-column: span 1;
+	grid-row: minmax(1, -1);
+	list-style-type: none;
+	padding: 0px;
+	overflow: hidden;
+	background-color: #8b0d88;
+	border: 2px solid #555;
+	border-radius: 10px;
+}
+
+.usersLI {
+	font-size: 1.5em;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 25px 15px;
+	border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+ /* grid that holds the employee info */
+.usersInfo {
+	grid-column: span 5;
+	grid-row: span 4;
+	display: grid;
+	grid-template-columns: repeat(5, minmax(8rem, auto));
+	grid-auto-rows: minmax(3rem, auto);
+	gap: 10px;
+	background: #ccc;
+	border-radius: 10px;
+	font-size: 1.2rem;
+	line-height: 2;
+}
+
+.uGrid-name{
+	justify-self: center;
+	align-self: center;
+	grid-column: span 5;
+	width: 90%;
+	padding: 20px;
+	font-size: 2.5rem;
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 3px solid #555;
+}
+
+.uGrid-item1{
+	font-style: italic;
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: right;
+}
+
+.uGrid-item2{
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: left;
+}
+
+.uGrid-item3{
+	font-style: italic;
+	grid-column: span 2;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: right;
+}
+
+.uGrid-item4{
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: left;
+}
+
+.uGrid-item5{
+	font-style: italic;
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: right;
+}
+
+.uGrid-item6{
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: left;
+}
+
+.uGrid-item7{
+	font-style: italic;
+	grid-column: span 2;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: right;
+}
+
+.uGrid-item8{
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: left;
+}
+
+.uGrid-item9{
+	font-style: italic;
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: right;
+}
+
+.uGrid-item10{
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: left;
+}
+
+.uGrid-item11{
+	font-style: italic;
+	grid-column: span 2;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: right;
+}
+
+.uGrid-item12{
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: left;
+}
+
+.uGrid-item13{
+	font-style: italic;
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: right;
+}
+
+.uGrid-item14{
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: left;
+}
+
+.uGrid-item15{
+	font-style: italic;
+	grid-column: span 2;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: right;
+}
+
+.uGrid-item16{
+	grid-column: span 1;
+	grid-row: span 1;
+	padding: 20px;
+	font-size: 30px;
+	text-align: left;
+}
+
+
+/* User List Page styles ------------------------------------------------------------------------------*/
+.usersPage {
+	justify-self: center;
+	grid-template-columns: auto minmax(1rem, auto) 1fr;
+	grid-auto-rows: auto;
+	word-wrap: normal;
+}
+
+.userChanges {
+	grid-column: span 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	margin: 1rem;
+	padding: 1rem;
+	background: #8b0d88;
+	border-radius: 5px;
+}
+
+.enterID {
+	width: 90%;
+	background: #ccc;
+	border-radius: 5px;
+	padding: 0.8rem;
+}
+
+.userChanges label {
+	color: #ccc;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.userList {
+	grid-column: span 1;
+	display: grid;
+	grid-template-columns: repeat(7, minmax(6rem, auto));
+	grid-auto-rows: minmax(1.5rem, auto);
+	margin: 1rem;
+	padding: 0.5rem;
+	overflow: auto;
+	background: #ccc;
+	border-radius: 5px;
+}
+
+.userList p {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	align-items: center;
+	font-size: 1.3rem;
+}
+
+.userHeader {
+	color: #ccc;
+	background: #303a99;
+}
+
+.addUser {
+	display: grid;
+	grid-template-columns: minmax(6rem, auto) 1fr;
+	grid-auto-rows: minmax(3rem, auto);
+	justify-self: center;
+	/*justify-content: space-around;*/
+	align-content: space-around;
+	gap: 20px;
+	padding: 2rem;
+	width: 85%;
+	background: #ccc;
+	border-radius: 5px;
+}
+
+.addUser label {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	font-size: 1.2rem;
+}
+
+.addUser button {
+	justify-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+	width: 60%;
+}
+
+.updateUser {
+	display: grid;
+	grid-template-columns: repeat(8, minmax(5rem, auto));
+	grid-auto-rows: minmax(1.5rem, auto);
+	margin: 1rem;
+	overflow: auto;
+	border-radius: 10px;
+	background:#303a99;
+}
+
+.updateUser p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ccc;
+	font-size: 1.3rem;
+	margin: 0;
+	padding: 1rem;
+}
+
+.updateInfo {
+	background: #8b0d88;
+	border-top: 2px solid #ccc;
+}
+
+
+/* Clock In/Out Page styles ------------------------------------------------------------------------------*/
+.clockList {
+	justify-self: center;
+	display: grid;
+	grid-template-columns: repeat(4, minmax(6rem, auto));
+	grid-auto-rows: minmax(4.5rem, auto);
+	margin: 1rem;
+	padding: 0.5rem;
+	overflow: auto;
+	background: #ccc;
+	border-radius: 10px;
+	width: 95%;
+	overflow: auto;
+}
+
+.clockList p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 1rem;
+	font-size: 1.3rem;
+}
+
+.clockHeader {
+	color: #ccc;
+	background: #303a99;
+	font-weight: bold;
+}
+
+/* Footer styles ------------------------------------------------------------------------------*/
+footer {
+	margin-top: 2.5rem;
+	text-align: center;
+	background-image: linear-gradient(to bottom right, #303a99, #8b0d88); 
+	color: #ccc;
+}
+
+footer p {
+	padding: 5px 20px;
+}
+
+
+/* Tests -------------------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+  }
+
+
+  /* Javascript Menu that modifies the schedule grid */
+/* click menu */
+.clickMenu {
+	position: absolute;
+	left: 0;
+	top: 0;
+	visibility: hidden;
+	width: 200px;
+	background: #ccc;
+	border-radius: 10px;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.menu {
+	padding: 10px 12px;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	padding: 0 8px 0 0;
+	list-style: none;
+	font-size: 15px;
+	width: 100%;
+	height: 40px;
+	border-radius: 5px;
+	margin-bottom: 2px;
+}
+
+.item:hover {
+	background: rgb(145, 145, 145);
+}
+
+.item button {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	cursor: pointer;
+	margin-left: 8px;
+	width: 100%;
+	font-size: 18px;
+}
+
+.clicked {
+
+}
+
+
+/* color pallette
+https://digitalsynopsis.com/design/color-schemes-palettes/
+
+#034ea2   royal blue
+#303a99   darker blue with hint of purple
+#5e2390   
+#8b0d88
+#c00384
+#f10080
+
+scrollbar
+https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
+*/
