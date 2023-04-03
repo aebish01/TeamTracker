@@ -1,32 +1,13 @@
 <?php
-
-//other files
+session_start();
 require_once('/xampp/htdocs/TeamTracker/model/User.php');
 require_once('/xampp/htdocs/TeamTracker/model/database.php');
 require('model/supvModel.php');
-require_once('/xampp/htdocs/TeamTracker/model/Login.class.php');
-//require_once('/xampp/htdocs/TeamTracker/model/loginControl.php');
 //objects
-// Start session
-session_start();
+$user = new User();
 $db = new Database();
-$user = new User();
-// Check if user is logged in
-if (!isset($_SESSION['userID'])) {
-    // Redirect to login page
-    header('Location: http://localhost/TeamTracker/view/login.php');
-    exit;
-}
-
-// Get user ID from session
-$sessionUserID = $_SESSION['userID'];
-
-// Create user object and set user ID
-$user = new User();
-$user->setUserId($sessionUserID);
-
-// Get user ID from user object
-$UserID = $user->getUserID();
+// profile
+$userID  = $_SESSION["userID"];
 //for delete
 $delUser = filter_input(INPUT_POST, 'deleteUserID', FILTER_VALIDATE_INT);
 //for add
@@ -39,10 +20,10 @@ $addEmpType = filter_input(INPUT_POST, 'addType', FILTER_UNSAFE_RAW);
 $addAuthLvl = filter_input(INPUT_POST, 'addAuth', FILTER_UNSAFE_RAW);
 $setUserName = '';
 
-if($addFirstName && $addLastName){
+if ($addFirstName && $addLastName) {
     $setUserName = $user->setUsername($addFirstName, $addLastName);
 }
-$setPassword = "Pa55Word!";
+$setPassword = "password";
 //for update 
 $userUpdate = filter_input(INPUT_POST, 'userIDUpdate', FILTER_VALIDATE_INT);
 $forUpdateUser = filter_input(INPUT_POST, 'userID4Update', FILTER_VALIDATE_INT);
@@ -63,8 +44,8 @@ if (!$action) {
     }
 }
 //if else 
-if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress && $addPhoneNumber && $addEmail && $addEmpType && $addAuthLvl){
-    $db->insert('users',[
+if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress && $addPhoneNumber && $addEmail && $addEmpType && $addAuthLvl) {
+    $db->insert('users', [
         'userName' => $setUserName,
         'password' => $setPassword,
         'firstName' => $addFirstName,
@@ -74,10 +55,10 @@ if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress
         'email' => $addEmail,
         'empType' => $addEmpType,
         'authLevel' => $addAuthLvl
-    ] );
-} elseif($delUser) {//else if deleteuser
+    ]);
+} elseif ($delUser) { //else if deleteuser
     $db->delete('users', $delUser);
-} 
+}
 //elseif(!empty($upPassword)) {//esleif userupdate
 //     $db->update('users', ['password' => $upPassword], $forUpdateUser);
 // } elseif(!empty($upFirst)) {//esleif userupdate
@@ -96,7 +77,7 @@ if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress
 //     $db->update('users', ['authLevel' => $upAuthLevel], $forUpdateUser);
 // }
 
-if($forUpdateUser) {
+if ($forUpdateUser) {
     $data = [
         'password' => $upPassword,
         'firstName' => $upFirst,
@@ -111,24 +92,24 @@ if($forUpdateUser) {
 }
 //switch between actions
 switch ($action) {
-    case "addUserSupv" :
+    case "addUserSupv":
         include('view/addUserSupv.php');
         break;
-    case "updateUserSupv" :
+    case "updateUserSupv":
         $userUp = updateProfile($db, $userUpdate);
         include('view/updateUserSupv.php');
         break;
-    case "userProfileSupv" :
-        $user = displayProfile($db, $UserID);
+    case "userProfileSupv":
+        $user = displayProfile($db, $userID);
         include('view/profileSpv.php');
         break;
-    case "timeOffSupv" :
+    case "timeOffSupv":
         include('view/timeOffSpv.php');
         break;
-    case "availSupv" :
+    case "availSupv":
         include('view/availabilitySpv.php');
         break;
-    case "scheduleSupv" :
+    case "scheduleSupv":
         include('view/scheduleSpv.php');
         break;
     default:

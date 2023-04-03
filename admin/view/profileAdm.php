@@ -17,7 +17,7 @@
 			<nav>
 				<ul>
 					<li><a href=".?action=scheduleAdmin">Schedule</a></li>
-					<li><a href=".?action=availAdmin">Availability</a></li>
+					<li><a href=".?action=availAdmin">Requests</a></li>
 					<li><a href=".?action=timeOffAdmin">Time Off</a></li>
 					<li><a href=".?action=userProfileAdmin">Profile</a></li>
 					<li><a href="http://localhost/TeamTracker/admin/">Users</a></li>
@@ -28,6 +28,10 @@
 					</form>
 				</ul>
 			</nav>
+
+			<div class="gridItem availDescription">
+				Personal Profile
+			</div>
 
 			<!--The div elemnent to display the schedule-->
 			<div class="gridItem usersLayout">
@@ -81,6 +85,8 @@
 
 			</div>
 
+			<div></div>
+
 			<!--The footer elemnent to display basic team information information-->
 			<footer>
 				<p>
@@ -94,18 +100,3 @@
 </body>
 
 </html>
-
-
-<!-- 
-	<ul class="usersList">
-		<li class="usersLI" style="background-color: #303a99">Supervisor 1</li>
-		<li class="usersLI">User 1</li>
-		<li class="usersLI">User 2</li>
-		<li class="usersLI">User 3</li>
-		<li class="usersLI">User 4</li>
-		<li class="usersLI">User 5</li>
-		<li class="usersLI">User 6</li>
-		<li class="usersLI">User 7</li>
-		<li class="usersLI">User 8</li>
-	</ul> 
--->

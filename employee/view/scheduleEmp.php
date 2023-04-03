@@ -30,8 +30,8 @@
 		</nav>
 
 		<!-- The div elemnent to display the date currently being displayed -->
-		<div class="gridItem dateSelect">
-			<h1>Monday Feb 23, 2023</h1>
+		<div class="gridItem availDescription">
+			Monday Feb 23, 2023
 		</div>
 
 		<!-- The div elemnent to display the schedule -->
@@ -95,10 +95,7 @@
 
 		</div>
 
-		<!-- <div class="gridItem userButtons">
-			<button class="button" onclick="addUser()">Add User</button>
-			<button class="button" onclick="deleteUser()">Delete User</button>
-		</div> -->
+		<div></div>
 
 		<!-- The footer elemnent to display basic team information -->
 		<footer>
@@ -111,37 +108,6 @@
 
 		<!-- End of the grid container -->
 	</div>
-
-	<!-- <div class="clickMenu">
-		<div class="content">
-			<ul class="menu">
-				<li class="item">
-					<button class="itemChange1" onclick="changeItem(1)">Add Desk1</button>
-				</li>
-				<li class="item">
-					<button class="itemChange2" onclick="changeItem(2)">Add Desk2</button>
-				</li>
-				<li class="item">
-					<button class="itemChange3" onclick="changeItem(3)">Add Desk3</button>
-				</li>
-				<li class="item">
-					<button class="itemChange4" onclick="changeItem(4)">Add Off desk</button>
-				</li>
-				<li class="item">
-					<button class="itemChange5" onclick="changeItem(5)">Add Meeting</button>
-				</li>
-				<li class="item">
-					<button class="itemChange6" onclick="changeItem(6)">Add Lunch</button>
-				</li>
-				<li class="item">
-					<button class="itemDelete" onclick="changeItem(7)">Delete Item</button>
-				</li>
-				<li class="item">
-					<button class="nevermind" onclick="changeItem(0)">Nothing</button>
-				</li>
-			</ul>
-		</div>
-	</div> -->
 
 	<script src="scripts/main.js"></script>
 
