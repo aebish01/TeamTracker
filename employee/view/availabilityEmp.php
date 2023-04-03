@@ -21,6 +21,11 @@
                 <li><a href=".?action=timeOffEmp">Time Off</a></li>
                 <li><a href=".?action=userProfileEmp">Profile</a></li>
                 <li><a href="http://localhost/TeamTracker/employee/">Clock In/Out</a></li>
+                <p></p>
+                <h2>Hello, <?php echo $_SESSION["name"]; ?></h2>
+                <form class="logout" action="../model/logout.php">
+                    <button class="button" type="submit" name="submit">Logout</button>
+                </form>
             </ul>
         </nav>
 
@@ -284,6 +289,8 @@
                 </div>
             </form>
         </div>
+
+        <div></div>
 
         <!-- The footer elemnent to display basic team information -->
         <footer>

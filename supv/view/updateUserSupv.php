@@ -35,85 +35,60 @@
             </div>
 
             <div class="gridItem">
-                <div class="row">
-                    <div class="col">
-                        <p class="bold">Password</p>
-                    </div>
-                    <div class="col">
-                        <p class="bold">First Name</p>
-                    </div>
-                    <div class="col">
-                        <p class="bold">Last Name</p>
-                    </div>
-                    <div class="col">
-                        <p class="bold">Phone</p>
-                    </div>
-                    <div class="col">
-                        <p class="bold">Address</p>
-                    </div>
-                    <div class="col">
-                        <p class="bold">Email</p>
-                    </div>
-                    <div class="col">
-                        <p class="bold">Employee Type</p>
-                    </div>
-                    <div class="col">
-                        <p class="bold">Authority</p>
-                    </div>
+                <div class="updateUser">
+                    <p>Password</p>
+                    <p>First Name</p>
+                    <p>Last Name</p>
+                    <p>Phone</p>
+                    <p>Address</p>
+                    <p>Email</p>
+                    <p>Employee Type</p>
+                    <p>Authority</p>
+
+                    <p class="updateInfo"><?php echo $userUp['password'] ?></p>
+                    <p class="updateInfo"><?php echo $userUp['firstName'] ?></p>
+                    <p class="updateInfo"><?php echo $userUp['lastName'] ?></p>
+                    <p class="updateInfo"><?php echo $userUp['phoneNumber'] ?></p>
+                    <p class="updateInfo"><?php echo $userUp['address'] ?></p>
+                    <p class="updateInfo"><?php echo $userUp['email'] ?></p>
+                    <p class="updateInfo"><?php echo $userUp['empType'] ?></p>
+                    <p class="updateInfo"><?php echo $userUp['authLevel'] ?></p>
                 </div>
 
-
-                <div class="row">
-                    <div class="col">
-                        <p class="bold"><?php echo $userUp['password'] ?></p>
-                    </div>
-                    <div class="col">
-                        <p class="bold"><?php echo $userUp['firstName'] ?></p>
-                    </div>
-                    <div class="col">
-                        <p class="bold"><?php echo $userUp['lastName'] ?></p>
-                    </div>
-                    <div class="col">
-                        <p class="bold"><?php echo $userUp['phoneNumber'] ?></p>
-                    </div>
-                    <div class="col">
-                        <p class="bold"><?php echo $userUp['address'] ?></p>
-                    </div>
-                    <div class="col">
-                        <p class="bold"><?php echo $userUp['email'] ?></p>
-                    </div>
-                    <div class="col">
-                        <p class="bold"><?php echo $userUp['empType'] ?></p>
-                    </div>
-                    <div class="col">
-                        <p class="bold"><?php echo $userUp['authLevel'] ?></p>
-                    </div>
-                </div>
-                <form action="." method="POST">
+                <form action="." method="POST" class="addUser">
                     <label for="">Please Enter User ID:</label>
-                    <input type="text" name="userID4Update" maxlength="" placeholder="Verify ID" required><br>
-                    <br>
-                    <h4>All areas must be Entered if information is not changing please enter the information above:</h4>
+                    <input type="text" name="userID4Update" maxlength="" placeholder="Verify ID" required>
+                    <h4 style="grid-column: span 2">All areas must be Entered if information is not changing please enter the information above:</h4>
                     <label for="">Password:</label>
-                    <input class="addInputPass" type="text" name="updatePassword" maxlength="50" placeholder="New Password" required><br>
+                    <input type="text" name="updatePassword" maxlength="50" placeholder="New Password" required>
                     <label for="">First Name:</label>
-                    <input class="addInputF" type="text" name="updateFName" maxlength="50" placeholder="New First Name" required><br>
+                    <input type="text" name="updateFName" maxlength="50" placeholder="New First Name" required>
                     <label for="">Last Name:</label>
-                    <input class="addInputL" type="text" name="updateLName" maxlength="50" placeholder="New Last Name" required><br>
+                    <input type="text" name="updateLName" maxlength="50" placeholder="New Last Name" required>
                     <label for="">Phone Number:</label>
-                    <input class="addInputP" type="text" name="updatePhone" maxlength="15" placeholder="New Phone Number" required><br>
+                    <input type="text" name="updatePhone" maxlength="15" placeholder="New Phone Number" required>
                     <label for="">Address:</label>
-                    <input class="upInputA" type="text" name="updateAddress" maxlength="100" placeholder="New Address" required><br>
+                    <input type="text" name="updateAddress" maxlength="100" placeholder="New Address" required>
                     <label for="">Email:</label>
-                    <input class="addInputE" type="text" name="updateEmail" maxlength="50" placeholder="New Email" required><br>
+                    <input type="text" name="updateEmail" maxlength="50" placeholder="New Email" required>
                     <label for="">Employee Type:</label>
-                    <input class="addInputT" type="text" name="updateType" maxlength="50" placeholder="FullTime/PartTime" required><br>
+                    <input type="text" name="updateType" maxlength="50" placeholder="FullTime/PartTime" required>
                     <label for="">Authority:</label>
-                    <input class="addInputAU" type="text" name="updateAuth" maxlength="50" placeholder="Authority" required><br>
-                    <br>
-                    <button>Update Employee</button>
+                    <input type="text" name="updateAuth" maxlength="50" placeholder="Authority" required>
+                    <button style="grid-column: span 2">Update Employee</button>
                 </form>
             </div>
+
+            <div></div>
+
+            <!-- The footer elemnent to display basic team information -->
+            <footer>
+                <p>
+                    Author: FHSU CSCI 441 Spring 2023 Team 3 Project<br>
+                    Team3@fhsu<br><br>
+                </p>
+
+            </footer>
         </div>
     </main>
 </body>

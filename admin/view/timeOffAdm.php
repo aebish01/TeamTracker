@@ -17,10 +17,15 @@
         <nav>
             <ul>
                 <li><a href=".?action=scheduleAdmin">Schedule</a></li>
-                <li><a href=".?action=availAdmin">Availability</a></li>
+                <li><a href=".?action=availAdmin">Requests</a></li>
                 <li><a href=".?action=timeOffAdmin">Time Off</a></li>
                 <li><a href=".?action=userProfileAdmin">Profile</a></li>
                 <li><a href="http://localhost/TeamTracker/admin/">Users</a></li>
+                <p></p>
+                <h2>Hello, <?php echo $_SESSION["name"]; ?></h2>
+                <form class="logout" action="../model/logout.php">
+                    <button class="button" type="submit" name="submit">Logout</button>
+                </form>
             </ul>
         </nav>
 
@@ -180,6 +185,8 @@
                 </div>
             </form>
         </div>
+
+        <div></div>
 
         <!-- The footer elemnent to display basic team information -->
         <footer>

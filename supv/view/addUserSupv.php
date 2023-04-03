@@ -36,7 +36,7 @@
             </div>
 
             <div class="gridItem">
-                <form action="." method="POST" class="TOForm">
+                <form action="." method="POST" class="addUser">
                     <label for="">First Name:</label>
                     <input class="addInputF" type="text" name="addFName" maxlength="50" placeholder="First Name" required>
                     <label for="">Last Name:</label>

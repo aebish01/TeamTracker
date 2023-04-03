@@ -30,8 +30,8 @@
 		</nav>
 
 		<!-- The div elemnent to display the date currently being displayed -->
-		<div class="gridItem dateSelect">
-			<h1>Monday Feb 23, 2023</h1>
+		<div class="gridItem availDescription">
+			Monday Feb 23, 2023
 		</div>
 
 		<!-- The div elemnent to display the schedule -->
