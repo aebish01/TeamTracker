@@ -45,6 +45,12 @@ CREATE TABLE `user_time_slots` (
   FOREIGN KEY (time_slot_id) REFERENCES time_slots(id)
 );
 
+CREATE TABLE `locations` (
+  `id` INT(50) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `locationName` varchar(50) NOT NULL,
+  `active` BIT NOT NULL
+);
+
 -- /* Populating database */
 INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
 VALUES ('bLoblaw',  'bLob123', 'Bob', 'Loblaw', '123 Wallaby Way', 1234567890, 'bLoblaw@bobLoblaw@Loblaw.com', 'admin', '1', 'admin');
@@ -54,3 +60,24 @@ VALUES ('tParker',  'tParker123', 'Trey', 'Parker', '1020 South Park Road', 1234
 
 INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
 VALUES ('dVu',  'dVuCSCI', 'Dr.', 'Vu', '1 FHSU Place', 1234567892, 'drvu@fhsu.edu', 'supervisor', '3', 'supervisor');
+
+INSERT INTO locations(locationName, active)
+VALUES ('Desk1', 1);
+
+INSERT INTO locations(locationName, active)
+VALUES ('Desk2', 1);
+
+INSERT INTO locations(locationName, active)
+VALUES ('Desk3', 1);
+
+INSERT INTO locations(locationName, active)
+VALUES ('Off Desk', 1);
+
+INSERT INTO locations(locationName, active)
+VALUES ('Meeting', 1);
+
+INSERT INTO locations(locationName, active)
+VALUES ('Lunch', 1);
+
+INSERT INTO locations(locationName, active)
+VALUES ('Nothing', 1);
