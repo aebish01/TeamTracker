@@ -52,12 +52,6 @@ CREATE TABLE `assignments_April_4` (
 
 -- /* Populating database */
 INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
-VALUES ('bLoblaw',  'bLob123', 'Bob', 'Loblaw', '123 Wallaby Way', 1234567890, 'bLoblaw@bobLoblaw@Loblaw.com', 'admin', '1', 'admin');
-
-INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
-VALUES ('tParker',  'tParker123', 'Trey', 'Parker', '1020 South Park Road', 1234567891, 'tparker@southparkstudios.cc', 'manager', '2', 'manager');
-
-INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
 VALUES ('dVu',  'dVuCSCI', 'Dr.', 'Vu', '1 FHSU Place', 1234567892, 'drvu@fhsu.edu', 'supervisor', '3', 'supervisor'), 
 ('tParker',  'tParker123', 'Trey', 'Parker', '1020 South Park Road', 1234567891, 'tparker@southparkstudios.cc', 'manager', '2', 'manager'),
 ('bLoblaw',  'bLob123', 'Bob', 'Loblaw', '123 Wallaby Way', 1234567890, 'bLoblaw@bobLoblaw@Loblaw.com', 'admin', '1', 'admin');
