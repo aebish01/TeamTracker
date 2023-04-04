@@ -31,28 +31,23 @@ CREATE TABLE `users` (
 );
 
 CREATE TABLE `time_slots` (
-  `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  `start_time` DATETIME NOT NULL,
-  `end_time` DATETIME NOT NULL
-);
-
-CREATE TABLE `user_time_slots` (
-  `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  `user_id` INT(11) UNSIGNED NOT NULL,
-  `time_slot_id` INT(11) UNSIGNED NOT NULL,
-  `date` DATE NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(userId),
-  FOREIGN KEY (time_slot_id) REFERENCES time_slots(id)
+  `timeSlot` varchar(50) NOT NULL PRIMARY KEY,
+  `active` INT(11) NOT NULL
 );
 
 CREATE TABLE `activities` (
+  `activityName` varchar(50) NOT NULL PRIMARY KEY,
+  `active` INT(11) NOT NULL
+);
+
+CREATE TABLE `assignments_April_4` (
   `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `timeSlot` varchar(50) NOT NULL,
   `activityName` varchar(50) NOT NULL,
-  `active` BIT NOT NULL,
-  `time_slot_id` INT(11) UNSIGNED NOT NULL,
   `user_id` INT(11) UNSIGNED NOT NULL,
-  FOREIGN KEY (time_slot_id) REFERENCES time_slots(id),
-  FOREIGN KEY (user_id) REFERENCES users(userId)
+  FOREIGN KEY (`timeSlot`) REFERENCES `time_slots`(timeSlot),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(userId),
+  FOREIGN KEY (`activityName`) REFERENCES `activities`(activityName)
 );
 
 -- /* Populating database */
@@ -63,25 +58,15 @@ INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber
 VALUES ('tParker',  'tParker123', 'Trey', 'Parker', '1020 South Park Road', 1234567891, 'tparker@southparkstudios.cc', 'manager', '2', 'manager');
 
 INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
-VALUES ('dVu',  'dVuCSCI', 'Dr.', 'Vu', '1 FHSU Place', 1234567892, 'drvu@fhsu.edu', 'supervisor', '3', 'supervisor');
+VALUES ('dVu',  'dVuCSCI', 'Dr.', 'Vu', '1 FHSU Place', 1234567892, 'drvu@fhsu.edu', 'supervisor', '3', 'supervisor'), 
+('tParker',  'tParker123', 'Trey', 'Parker', '1020 South Park Road', 1234567891, 'tparker@southparkstudios.cc', 'manager', '2', 'manager'),
+('bLoblaw',  'bLob123', 'Bob', 'Loblaw', '123 Wallaby Way', 1234567890, 'bLoblaw@bobLoblaw@Loblaw.com', 'admin', '1', 'admin');
 
-INSERT INTO activities(locationName, active)
-VALUES ('Desk1', 1);
+INSERT INTO activities(activityName, active)
+VALUES ('Desk1', 1), ('Desk2', 1), ('Desk3', 1), ('Off Desk', 1), ('Meeting', 1), ('Lunch', 1), ('Nothing', 1);
 
-INSERT INTO activities(locationName, active)
-VALUES ('Desk2', 1);
+INSERT INTO time_slots(timeSlot, active)
+VALUES ('8a', 1), ('9a', 1), ('10a', 1), ('11a', 1), ('12a', 1), ('1p', 1), ('2p', 1), ('3p', 1), ('4p', 1), ('5p', 1), ('6p', 1), ('7p', 1), ('8p', 1);
 
-INSERT INTO activities(locationName, active)
-VALUES ('Desk3', 1);
-
-INSERT INTO activities(locationName, active)
-VALUES ('Off Desk', 1);
-
-INSERT INTO activities(locationName, active)
-VALUES ('Meeting', 1);
-
-INSERT INTO activities(locationName, active)
-VALUES ('Lunch', 1);
-
-INSERT INTO activities(locationName, active)
-VALUES ('Nothing', 1);
+INSERT INTO assignments_April_4(timeSlot, user_id, activityName)
+VALUES ('8a', 1, 'Desk1');
