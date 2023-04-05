@@ -78,7 +78,9 @@
 				<p>8:00 PM</p>
 			</div>
 
-			<div class="scheduleItems users">User 1</div>
+			<div class="scheduleItems users">
+				<?php echo $user['firstName'] ?>
+				<?php echo $user['lastName'] ?></div>
 			<div class="scheduleItems"></div>
 			<div class="scheduleItems"></div>
 			<div class="scheduleItems"></div>

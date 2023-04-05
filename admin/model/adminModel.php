@@ -17,8 +17,9 @@ function phoneNumDisplay($phone) {
     substr($phone, 0, 3),
     substr($phone, 3, 3),
     substr($phone, 6, 4)
-);
+    );
 }
+
 //fix phone number 
 //fix email
 //fix auth level

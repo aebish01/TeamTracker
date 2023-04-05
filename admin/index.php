@@ -111,6 +111,8 @@ switch ($action) {
         include('view/availabilityAdm.php');
         break;
     case "scheduleAdmin" :
+        $user = displayProfile($db, $userID);
+        $users = $db->queryAll('users');
         include('view/scheduleAdm.php');
         break;
     default:
