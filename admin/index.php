@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION['userID'])) {
+    header("Location: http://localhost/TeamTracker/view/login.php");
+    exit();
+}
+$userID  = $_SESSION["userID"];
 //other files
 require_once('/xampp/htdocs/TeamTracker/model/User.php');
 require_once('/xampp/htdocs/TeamTracker/model/database.php');
@@ -8,23 +13,58 @@ require('model/adminModel.php');
 $user = new User();
 $db = new Database();
 // profile
-$userID  = $_SESSION["userID"];
+
 //for delete
 $delUser = filter_input(INPUT_POST, 'deleteUserID', FILTER_VALIDATE_INT);
 //for add
-$addFirstName = filter_input(INPUT_POST, 'addFName', FILTER_UNSAFE_RAW);
-$addLastName = filter_input(INPUT_POST, 'addLName', FILTER_UNSAFE_RAW);
-$addAddress = filter_input(INPUT_POST, 'addAddress', FILTER_UNSAFE_RAW);
-$addPhoneNumber = filter_input(INPUT_POST, 'addPhone', FILTER_UNSAFE_RAW);
-$addEmail = filter_input(INPUT_POST, 'addEmail', FILTER_UNSAFE_RAW);
-$addEmpType = filter_input(INPUT_POST, 'addType', FILTER_UNSAFE_RAW);
-$addAuthLvl = filter_input(INPUT_POST, 'addAuth', FILTER_UNSAFE_RAW);
-$setUserName = '';
+//$addFirstName = filter_input(INPUT_POST, 'addFName', FILTER_UNSAFE_RAW);
+if(isset($_POST['addFName']) && isset($_POST['addLName']) && isset($_POST['addPhone']) && isset($_POST['addEmail'])) {
+    $addFirstName = $_POST['addFName'];
+    $addLastName = $_POST['addLName'];
+    $addPhoneNumber = $_POST['addPhone'];
+    $addEmail = $_POST['addEmail'];
+    $addAddress = filter_input(INPUT_POST, 'addAddress', FILTER_UNSAFE_RAW);
+    $addEmpType = filter_input(INPUT_POST, 'addType', FILTER_UNSAFE_RAW);
+    $addAuthLvl = filter_input(INPUT_POST, 'addAuth', FILTER_UNSAFE_RAW);
+    $setUserName = '';
+    if($addFirstName && $addLastName){
+        $setUserName = $user->setUsername($addFirstName, $addLastName);
+    }
+    $setPassword = "Pa55Word!";
 
-if($addFirstName && $addLastName){
-    $setUserName = $user->setUsername($addFirstName, $addLastName);
-}
-$setPassword = "Pa55Word!";
+    // Validate that first name and last name only contain alphabetical characters
+    if(!preg_match("/^[a-zA-Z]+$/", $addFirstName) || !preg_match("/^[a-zA-Z]+$/", $addLastName) || !preg_match("/^[0-9]{10}$/", $addPhoneNumber) || !preg_match('/\.(com|edu|org|net)$/i', $addEmail)) {
+      // If validation fails, show an error message and exit
+      echo "The information you entered is not correct";
+      exit;
+    } //elseif ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress && $addPhoneNumber && $addEmail && $addEmpType && $addAuthLvl){
+        $db->insert('users',[
+            'userName' => $setUserName,
+            'password' => $setPassword,
+            'firstName' => $addFirstName,
+            'lastName' => $addLastName,
+            'address' => $addAddress,
+            'phoneNumber' => $addPhoneNumber,
+            'email' => $addEmail,
+            'empType' => $addEmpType,
+            'authLevel' => $addAuthLvl
+        ] );
+    // rest of the code for adding first name and last name to database
+
+  }
+    
+
+//$addLastName = filter_input(INPUT_POST, 'addLName', FILTER_UNSAFE_RAW);
+//$addAddress = filter_input(INPUT_POST, 'addAddress', FILTER_UNSAFE_RAW);
+//$addPhoneNumber = filter_input(INPUT_POST, 'addPhone', FILTER_UNSAFE_RAW);
+//$addEmail = filter_input(INPUT_POST, 'addEmail', FILTER_UNSAFE_RAW);
+//$addEmpType = filter_input(INPUT_POST, 'addType', FILTER_UNSAFE_RAW);
+//$addAuthLvl = filter_input(INPUT_POST, 'addAuth', FILTER_UNSAFE_RAW);
+//$setUserName = '';
+//set
+
+
+
 //for update 
 $userUpdate = filter_input(INPUT_POST, 'userIDUpdate', FILTER_VALIDATE_INT);
 $forUpdateUser = filter_input(INPUT_POST, 'userID4Update', FILTER_VALIDATE_INT);
@@ -45,19 +85,20 @@ if (!$action) {
     }
 }
 //if else 
-if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress && $addPhoneNumber && $addEmail && $addEmpType && $addAuthLvl){
-    $db->insert('users',[
-        'userName' => $setUserName,
-        'password' => $setPassword,
-        'firstName' => $addFirstName,
-        'lastName' => $addLastName,
-        'address' => $addAddress,
-        'phoneNumber' => $addPhoneNumber,
-        'email' => $addEmail,
-        'empType' => $addEmpType,
-        'authLevel' => $addAuthLvl
-    ] );
-} elseif($delUser) {//else if deleteuser
+//if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress && $addPhoneNumber && $addEmail && $addEmpType && $addAuthLvl){
+  //  $db->insert('users',[
+    //    'userName' => $setUserName,
+    //    'password' => $setPassword,
+   //     'firstName' => $addFirstName,
+   //     'lastName' => $addLastName,
+   //     'address' => $addAddress,
+   //     'phoneNumber' => $addPhoneNumber,
+   //     'email' => $addEmail,
+   //     'empType' => $addEmpType,
+   //     'authLevel' => $addAuthLvl
+   // ] );
+
+if($delUser) {//else if deleteuser
     $db->delete('users', $delUser);
 } 
 //elseif(!empty($upPassword)) {//esleif userupdate

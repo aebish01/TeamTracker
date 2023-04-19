@@ -69,11 +69,19 @@ Class User {
 
     //setters 
     public function setFirstName($firstName) {
-        $this->firstName = $firstName;
+        if (!ctype_alpha($firstName)) {
+            throw new InvalidArgumentException("First name can only contain alphabetical characters.");
+        } else {
+            $this->firstName = $firstName;
+        }
     }
     public function setLastName($lastName) {
-        $this->lastName = $lastName;
-    }
+        if (!ctype_alpha($lastName)) {
+            throw new InvalidArgumentException("Last name can only contain alphabetical characters.");
+        } else {
+            $this->lastName = $lastName;
+        }
+    }    
     public function setUsername($firstName, $lastName) {
         $db = new Database();
         
@@ -115,7 +123,12 @@ Class User {
     }
 
     public function setEmail($email) {
-        $this->email = $email;
+        if (!preg_match('/^[^@\s]+@[^@\s]+\.(com|edu|org|net)$/', $email)) {
+            // The $email variable does not contain a valid email address
+            throw new InvalidArgumentException("Email address is not in the correct format.");
+        } else {
+            $this->email = $email;
+        }
     }
 
     public function setEmployeeType($employeeType) {
