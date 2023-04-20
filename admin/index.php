@@ -6,10 +6,12 @@ if (!isset($_SESSION['userID'])) {
 }
 $userID  = $_SESSION["userID"];
 //other files
+require_once('/xampp/htdocs/TeamTracker/model/error.php');
 require_once('/xampp/htdocs/TeamTracker/model/User.php');
 require_once('/xampp/htdocs/TeamTracker/model/database.php');
 require('model/adminModel.php');
 //objects
+$error = new PopupError();
 $user = new User();
 $db = new Database();
 // profile
@@ -31,27 +33,37 @@ if(isset($_POST['addFName']) && isset($_POST['addLName']) && isset($_POST['addPh
         $setUserName = $user->setUsername($addFirstName, $addLastName);
     }
     $setPassword = "Pa55Word!";
+    $error = "You entered information incorrectly.";
 
     // Validate that first name and last name only contain alphabetical characters
-    if(!preg_match("/^[a-zA-Z]+$/", $addFirstName) || !preg_match("/^[a-zA-Z]+$/", $addLastName) || !preg_match("/^[0-9]{10}$/", $addPhoneNumber) || !preg_match('/\.(com|edu|org|net)$/i', $addEmail)) {
-      // If validation fails, show an error message and exit
-      echo "The information you entered is not correct";
-      exit;
-    } //elseif ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress && $addPhoneNumber && $addEmail && $addEmpType && $addAuthLvl){
+    try {
+        if(!preg_match("/^[a-zA-Z]+$/", $addFirstName) || !preg_match("/^[a-zA-Z]+$/", $addLastName) || !preg_match("/^[0-9]{10}$/", $addPhoneNumber) || !preg_match('/\.(com|edu|org|net)$/i', $addEmail)) {
+          // If validation fails, throw an exception with an error message
+          throw new Exception("Invalid input data");
+        }
+        
+        // If validation passes, insert the data into the database
         $db->insert('users',[
-            'userName' => $setUserName,
-            'password' => $setPassword,
-            'firstName' => $addFirstName,
-            'lastName' => $addLastName,
-            'address' => $addAddress,
-            'phoneNumber' => $addPhoneNumber,
-            'email' => $addEmail,
-            'empType' => $addEmpType,
-            'authLevel' => $addAuthLvl
-        ] );
-    // rest of the code for adding first name and last name to database
-
-  }
+          'userName' => $setUserName,
+          'password' => $setPassword,
+          'firstName' => $addFirstName,
+          'lastName' => $addLastName,
+          'address' => $addAddress,
+          'phoneNumber' => $addPhoneNumber,
+          'email' => $addEmail,
+          'empType' => $addEmpType,
+          'authLevel' => $addAuthLvl
+        ]);
+        
+        // rest of the code for adding first name and last name to database
+      
+      } catch (Exception $e) {
+        // If an exception is thrown, catch it and display an error message
+        PopupError::display("An error has occurred: " . $e->getMessage());
+        exit;
+      }
+    }
+      
     
 
 //$addLastName = filter_input(INPUT_POST, 'addLName', FILTER_UNSAFE_RAW);
