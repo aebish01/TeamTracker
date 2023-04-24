@@ -50,6 +50,16 @@ CREATE TABLE `assignments_April_4` (
   FOREIGN KEY (`activityName`) REFERENCES `activities`(activityName)
 );
 
+CREATE TABLE `user_time_slots` (
+  `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `time_slot_id` INT(11) UNSIGNED NOT NULL,
+  `user_id` INT(11) UNSIGNED NOT NULL,
+  `date` DATE NOT NULL,
+  UNIQUE KEY `unique_timeslot_user_date` (`time_slot_id`, `user_id`, `date`),
+  FOREIGN KEY (`time_slot_id`) REFERENCES `time_slots`(id),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(userId)
+);
+
 -- /* Populating database */
 -- /* INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
 -- VALUES ('dVu',  'dVuCSCI', 'Dr.', 'Vu', '1 FHSU Place', 1234567892, 'drvu@fhsu.edu', 'supervisor', '3', 'supervisor'), 
