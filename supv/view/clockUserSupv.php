@@ -33,49 +33,50 @@
             <div class="gridItem availDescription">
                 Enter the Updated User Information
             </div>
-
             <div class="gridItem">
-                <div class="updateUser">
-                    <p>Password</p>
-                    <p>First Name</p>
-                    <p>Last Name</p>
-                    <p>Phone</p>
-                    <p>Address</p>
-                    <p>Email</p>
-                    <p>Employee Type</p>
-                    <p>Authority</p>
+                <div class="clockSupvList">
+                    <p class="clockHeader">Clock ID</p>
+                    <p class="clockHeader">User ID</p>
+                    <p class="clockHeader">Date</p>
+                    <p class="clockHeader">TimeStamp</p>
+                    <p class="clockHeader">Clock In/Out</p>
+                    <p class="clockHeader">Updated by (if other than User)</p>
 
-                    <p class="updateInfo"><?php echo $userUp['password'] ?></p>
-                    <p class="updateInfo"><?php echo $userUp['firstName'] ?></p>
-                    <p class="updateInfo"><?php echo $userUp['lastName'] ?></p>
-                    <p class="updateInfo"><?php echo $userUp['phoneNumber'] ?></p>
-                    <p class="updateInfo"><?php echo $userUp['address'] ?></p>
-                    <p class="updateInfo"><?php echo $userUp['email'] ?></p>
-                    <p class="updateInfo"><?php echo $userUp['empType'] ?></p>
-                    <p class="updateInfo"><?php echo $userUp['authLevel'] ?></p>
+                    <?php foreach ($clocks as $clock) : ?>
+                        <p><?php echo $clock['ID'] ?></p>
+                        <p><?php echo $clock['userID'] ?></p>
+                        <p><?php echo $clock['date'] ?></p>
+                        <p><?php echo $clock['time'] ?></p>
+                        <?php if($clock['atWork'] == 1){ ?>
+                            <p>Clocked In</p>
+                        <?php } else {?> 
+                            <p>Clocked Out</p>
+                        <?php } ?>
+                        <p><?php echo $clock['editorID'] ?></p>
+                    <?php endforeach ?>
                 </div>
+            </div>
 
                 <form action="." method="POST" class="addUser">
-                    <label for="">Please Enter User ID:</label>
-                    <input type="text" name="userID4Update" maxlength="" placeholder="Verify ID" required>
-                    <h4 style="grid-column: span 2">All areas must be Entered if information is not changing please enter the information above:</h4>
-                    <label for="">Password:</label>
-                    <input type="text" name="updatePassword" maxlength="50" placeholder="New Password" required>
-                    <label for="">First Name:</label>
-                    <input type="text" name="updateFName" maxlength="50" placeholder="New First Name" required>
-                    <label for="">Last Name:</label>
-                    <input type="text" name="updateLName" maxlength="50" placeholder="New Last Name" required>
-                    <label for="">Phone Number:</label>
-                    <input type="text" name="updatePhone" maxlength="15" placeholder="New Phone Number" required>
-                    <label for="">Address:</label>
-                    <input type="text" name="updateAddress" maxlength="100" placeholder="New Address" required>
-                    <label for="">Email:</label>
-                    <input type="text" name="updateEmail" maxlength="50" placeholder="New Email" required>
-                    <label for="">Employee Type:</label>
-                    <input type="text" name="updateType" maxlength="50" placeholder="FullTime/PartTime" required>
-                    <label for="">Authority:</label>
-                    <input type="text" name="updateAuth" maxlength="50" placeholder="Authority" required>
-                    <button style="grid-column: span 2">Update Employee</button>
+                    <label for="">Enter Clock ID to Delete it:</label>
+                    <input type="text" name="delClock" maxlength="11" placeholder="Verify ID" required>
+                    <button style="grid-column: span 2">Delete</button>
+                </form>
+                <form action="." method="POST" class="addUser">
+                    <h4 style="grid-column: span 2">To add a clock time please enter the folowing information</h4>
+                    <label for="">User ID:</label>
+                    <input type="text" name="clockAddUserID" maxlength="11" placeholder="User ID" required>
+                    <label for="">Clock Date:</label>
+                    <input type="date" id="date" name="clockDate" maxlength="50" required>
+                    <label for="">Clock Hour</label>
+                    <input type="time" name="clockTime" maxlength="2" placeholder="Hour 0-23" required>
+                    <label for="">Clocking in/out</label>
+                    <select class="clockinout" name="clockInOut" required>
+                        <option value="">-- Clocking In / Out --</option>
+                        <option value="1">Clock IN</option>
+                        <option value="0">Clock Out</option>
+                    </select>                    
+                    <button style="grid-column: span 2">Add Clock</button>
                 </form>
             </div>
 

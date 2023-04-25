@@ -426,6 +426,39 @@ h1 {
 }
 
 /* styles for user sidebar list */
+.clockSupvList {
+	justify-self: center;
+	display: grid;
+	grid-template-columns: repeat(6, minmax(6rem, auto));
+	grid-auto-rows: minmax(4.5rem, auto);
+	margin: 1rem;
+	padding: 0.5rem;
+	overflow: auto;
+	background: #ccc;
+	border-radius: 10px;
+	width: 95%;
+	overflow: auto;
+}
+
+.clockSupvList p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 1rem;
+	font-size: 1.3rem;
+}
+
+.clockHeader {
+	color: #ccc;
+	background: #303a99;
+	font-weight: bold;
+}
+input[type="date"] {
+	font-family: Arial, sans-serif;
+	font-size: 25px;
+  }
+  
 .usersList {
 	grid-column: span 1;
 	grid-row: minmax(1, -1);

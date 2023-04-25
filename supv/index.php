@@ -86,7 +86,50 @@ if(isset($_POST['addFName']) && isset($_POST['addLName']) && isset($_POST['addPh
       }
       
     }
+//for clock user look up
+$clockUserID = filter_input(INPUT_POST, 'clockUserID', FILTER_VALIDATE_INT);
+//delete clock
+$deleteClock = filter_input(INPUT_POST, 'delClock', FILTER_VALIDATE_INT);
+if ($deleteClock) { 
+  $db->deleteClock($deleteClock);
+}
+//add clock
+//$clockAddUserID = filter_input(INPUT_POST, 'clockAddUserID', FILTER_VALIDATE_INT);
+if(isset($_POST['clockAddUserID'])) {
+  $clockUserID = filter_input(INPUT_POST, 'clockAddUserID', FILTER_VALIDATE_INT);
+  $clockDate = filter_input(INPUT_POST, 'clockDate', FILTER_SANITIZE_STRING);
+  $clockTime = filter_input(INPUT_POST, 'clockTime', FILTER_SANITIZE_STRING);
+  $clockInOut = filter_input(INPUT_POST, 'clockInOut', FILTER_VALIDATE_INT);
 
+  // Convert to unix timestamp
+  $dateTimeString = $clockDate . ' ' . $clockTime;
+  $timeStamp = strtotime($dateTimeString);
+  $time = date('Y-m-d H:i:00', $timeStamp);
+
+  // Set time zone
+  $timezone = 'America/Chicago';
+  date_default_timezone_set($timezone);
+  $date = date('Y-m-d');
+
+  // Add clock entry to database
+  if($clockInOut == 1){
+    $db->insert('clock', [
+      'userID' => $clockUserID,
+      'date' => $date,
+      'time' => $time,
+      'atWork' => true,
+      'editorID' => $userID
+    ]);
+  } else {
+    $db->insert('clock', [
+      'userID' => $clockUserID,
+      'date' => $date,
+      'time' => $time,
+      'atWork' => false,
+      'editorID' => $userID
+    ]);
+  }
+}
 
 //for update 
 //----------------------------------------------------------------------
@@ -169,6 +212,10 @@ switch ($action) {
     case "updateUserSupv":
         $userUp = updateProfile($db, $userUpdate);
         include('view/updateUserSupv.php');
+        break;
+    case "clockUserSupv":
+        $clocks = updateClock($db, $clockUserID);
+        include('view/clockUserSupv.php');
         break;
     case "userProfileSupv":
         $user = displayProfile($db, $userID);

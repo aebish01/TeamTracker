@@ -132,5 +132,15 @@ class Database {
     /* to use above function:
     $deleteUser = $db->delete('users(or tablename)', 'userId = ?');
     echo "$deleteUser rows deleted"; */
+    public function deleteClock($clockID) {
+        //query
+       $query = "DELETE FROM clock WHERE ID = $clockID";
+       //prepare statement
+       $statement = $this->pdo->prepare($query);
+       //execute statement
+       $statement->execute();
+       //return rowcount
+       //return $statement->rowCount();
+   }
 }   
 ?>

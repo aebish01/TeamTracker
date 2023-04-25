@@ -12,6 +12,11 @@ function updateProfile($db, $userID){
     $user = $result->fetch();
     return $user;
 }
+function updateClock($db, $userID){
+    $result = $db->query('SELECT * FROM clock WHERE userID = ?', array($userID));
+    $clock = $result->fetchAll();
+    return $clock;
+}
 //fix phone number 
 //fix email
 //fix auth level

@@ -78,13 +78,14 @@
                         <option value="Full-Time">Full-Time</option>
                         <option value="Part-Time">Part-Time</option>
                     </select>
-                    <label for="">Authority:</label>
-                    <select class="updateInputAU" name="updateAuth" required>
-                        <option value="">-- Select Authority --</option>
-                        <option value="1">Admin</option>
-                        <option value="2">Supervisor</option>
-                        <option value="3">Employee</option>
-                    </select>                    <button style="grid-column: span 2">Update Employee</button>
+                        <label for="">Authority:</label>
+                        <select class="updateInputAU" name="updateAuth" required>
+                            <option value="">-- Select Authority --</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Supervisor</option>
+                            <option value="3">Employee</option>
+                    </select>                    
+                    <button style="grid-column: span 2">Update Employee</button>
                 </form>
             </div>
 
