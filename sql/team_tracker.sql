@@ -4,10 +4,12 @@
 -- */
 
 CREATE TABLE `clock` (
+  `ID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
   `date` date NOT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `atWork` tinyint(1) NOT NULL
+  `atWork` tinyint(1) NOT NULL,
+  `editorID` int(11) DEFAULT NULL
 );
 
 CREATE TABLE `company` (

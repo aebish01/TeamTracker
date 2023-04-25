@@ -51,9 +51,10 @@
                     </form>
                     <p></p>
                     <form class="userChanges" action="." method="POST">
-                        <label>Delete User By ID:</label>
-                        <input class="enterID" type="text" name="deleteUserID" placeholder="Enter User ID To Delete" maxlength="11">
-                        <button class="button">Delete User</button>
+                        <label>Clock Change User By ID:</label>
+                        <input class="enterID" type="text" name="clockUserID" placeholder="Enter User ID To Change clock" maxlength="11">
+                        <button class="button">User Clock</button>
+                        <input type="hidden" name="action" value="clockUserSupv">
                     </form>
                 </div>
 

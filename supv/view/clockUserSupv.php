@@ -5,24 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Team Tracker App Users</title>
+    <title>Team Tracker App Clock</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/bootstrap-grid.css">
     <link rel="stylesheet" href="../css/bootstrap-grid.css.map">
 </head>
 
 <body>
-
     <main>
         <div class="gridContainer">
             <!-- The main navigation bar element -->
             <nav>
                 <ul>
-                    <li><a href=".?action=scheduleAdmin">Schedule</a></li>
-                    <li><a href=".?action=availAdmin">Requests</a></li>
-                    <li><a href=".?action=timeOffAdmin">Time Off</a></li>
-                    <li><a href=".?action=userProfileAdmin">Profile</a></li>
-                    <li><a href="http://localhost/TeamTracker/admin/">Users</a></li>
+                    <li><a href=".?action=scheduleSupv">Schedule</a></li>
+                    <li><a href=".?action=availSupv">Requests</a></li>
+                    <li><a href=".?action=timeOffSupv">Time Off</a></li>
+                    <li><a href=".?action=userProfileSupv">Profile</a></li>
+                    <li><a href="http://localhost/TeamTracker/supv/">Users</a></li>
                     <p></p>
                     <h2>Hello, <?php echo $_SESSION["name"]; ?></h2>
                     <form class="logout" action="../model/logout.php">
@@ -73,18 +72,10 @@
                     <label for="">Email:</label>
                     <input type="text" name="updateEmail" maxlength="50" placeholder="New Email" required>
                     <label for="">Employee Type:</label>
-                    <select class="updateInputT" name="updateType" required>
-                        <option value="">-- Select Employee Type --</option>
-                        <option value="Full-Time">Full-Time</option>
-                        <option value="Part-Time">Part-Time</option>
-                    </select>
+                    <input type="text" name="updateType" maxlength="50" placeholder="FullTime/PartTime" required>
                     <label for="">Authority:</label>
-                    <select class="updateInputAU" name="updateAuth" required>
-                        <option value="">-- Select Authority --</option>
-                        <option value="1">Admin</option>
-                        <option value="2">Supervisor</option>
-                        <option value="3">Employee</option>
-                    </select>                    <button style="grid-column: span 2">Update Employee</button>
+                    <input type="text" name="updateAuth" maxlength="50" placeholder="Authority" required>
+                    <button style="grid-column: span 2">Update Employee</button>
                 </form>
             </div>
 
@@ -98,3 +89,8 @@
                 </p>
 
             </footer>
+        </div>
+    </main>
+</body>
+
+</html>

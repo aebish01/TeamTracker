@@ -72,9 +72,18 @@
                     <label for="">Email:</label>
                     <input type="text" name="updateEmail" maxlength="50" placeholder="New Email" required>
                     <label for="">Employee Type:</label>
-                    <input type="text" name="updateType" maxlength="50" placeholder="FullTime/PartTime" required>
+                    <select class="updateInputT" name="updateType" required>
+                        <option value="">-- Select Employee Type --</option>
+                        <option value="Full-Time">Full-Time</option>
+                        <option value="Part-Time">Part-Time</option>
+                    </select>
                     <label for="">Authority:</label>
-                    <input type="text" name="updateAuth" maxlength="50" placeholder="Authority" required>
+                    <select class="updateInputAU" name="updateAuth" required>
+                        <option value="">-- Select Authority --</option>
+                        <option value="1">Admin</option>
+                        <option value="2">Supervisor</option>
+                        <option value="3">Employee</option>
+                    </select>
                     <button style="grid-column: span 2">Update Employee</button>
                 </form>
             </div>
