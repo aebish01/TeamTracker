@@ -53,7 +53,13 @@
                     <p class="updateInfo"><?php echo $userUp['address'] ?></p>
                     <p class="updateInfo"><?php echo $userUp['email'] ?></p>
                     <p class="updateInfo"><?php echo $userUp['empType'] ?></p>
-                    <p class="updateInfo"><?php echo $userUp['authLevel'] ?></p>
+                    <?php if($userUp['authLevel'] == 1) { ?>
+                        <p class="updateInfo">Admin</p>
+                    <?php } elseif($userUp['authLevel'] == 2) { ?>
+                        <p class="updateInfo">Supervisor</p>
+                    <?php } else { ?>
+                        <p class="updateInfo">Employee</p>
+                    <?php } ?>
                 </div>
 
                 <form action="." method="POST" class="addUser">
