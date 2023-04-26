@@ -458,7 +458,10 @@ input[type="date"] {
 	font-family: Arial, sans-serif;
 	font-size: 25px;
   }
-  
+input[type="time"] {
+	font-family: Arial, sans-serif;
+	font-size: 25px;
+  }
 .usersList {
 	grid-column: span 1;
 	grid-row: minmax(1, -1);
