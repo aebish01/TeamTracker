@@ -183,6 +183,8 @@ switch ($action) {
     case "scheduleAdmin" :
         $user = displayProfile($db, $userID);
         $users = $db->queryAll('users');
+        $sql = "SELECT * FROM assignments";
+        $result = mysqli_query($db, $sql);
         include('view/scheduleAdm.php');
         break;
     default:

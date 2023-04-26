@@ -42,7 +42,7 @@ CREATE TABLE `activities` (
   `active` INT(11) NOT NULL
 );
 
-CREATE TABLE `assignments_April_4` (
+CREATE TABLE `assignments` (
   `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `timeSlot` varchar(50) NOT NULL,
   `activityName` varchar(50) NOT NULL,
@@ -54,11 +54,11 @@ CREATE TABLE `assignments_April_4` (
 
 CREATE TABLE `user_time_slots` (
   `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  `time_slot_id` INT(11) UNSIGNED NOT NULL,
+  `timeSlot` varchar(50) NOT NULL,
   `user_id` INT(11) UNSIGNED NOT NULL,
   `date` DATE NOT NULL,
-  UNIQUE KEY `unique_timeslot_user_date` (`time_slot_id`, `user_id`, `date`),
-  FOREIGN KEY (`time_slot_id`) REFERENCES `time_slots`(id),
+  UNIQUE KEY `unique_timeslot_user_date` (`timeSlot`, `user_id`, `date`),
+  FOREIGN KEY (`timeSlot`) REFERENCES `time_slots`(timeSlot),
   FOREIGN KEY (`user_id`) REFERENCES `users`(userId)
 );
 
