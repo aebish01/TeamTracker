@@ -18,16 +18,16 @@ class Request extends Database
                             <p>$endDate</p>
                             <p>$type</p>
                             <p>$message</p>
-                            <form method='post'>
-                                <button>Approve</button>
+                            <form class='requestForm' method='post'>
+                                <button name='actionA'>Approve</button>
                             </form>
-                            <form method='post'>
-                                <button>Deny</button>
+                            <form class='requestForm' method='delete'>
+                                <button name='actionD'>Deny</button>
                             </form>";
             }
             return;
         } else {
-            echo "<div class='gridItem availDescription'>
+            echo "<div class='availDescription' style='grid-column: span 7'>
                     No Pending Requests Found
                   </div>";
 
@@ -52,7 +52,9 @@ class Request extends Database
                             <p>$type</p>
                             <p>$message</p>
                             <p></p>
-                            <button>Deny</button>";
+                            <form class='requestForm' method='delete'>
+                                <button name='actionD'>Deny</button>
+                            </form>";
             }
             return;
         } else {

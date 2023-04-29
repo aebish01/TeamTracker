@@ -21,7 +21,7 @@ $addEmpType = filter_input(INPUT_POST, 'addType', FILTER_UNSAFE_RAW);
 $addAuthLvl = filter_input(INPUT_POST, 'addAuth', FILTER_UNSAFE_RAW);
 $setUserName = '';
 
-if($addFirstName && $addLastName){
+if ($addFirstName && $addLastName) {
     $setUserName = $user->setUsername($addFirstName, $addLastName);
 }
 $setPassword = "Pa55Word!";
@@ -45,8 +45,8 @@ if (!$action) {
     }
 }
 //if else 
-if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress && $addPhoneNumber && $addEmail && $addEmpType && $addAuthLvl){
-    $db->insert('users',[
+if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress && $addPhoneNumber && $addEmail && $addEmpType && $addAuthLvl) {
+    $db->insert('users', [
         'userName' => $setUserName,
         'password' => $setPassword,
         'firstName' => $addFirstName,
@@ -56,10 +56,14 @@ if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress
         'email' => $addEmail,
         'empType' => $addEmpType,
         'authLevel' => $addAuthLvl
-    ] );
-} elseif($delUser) {//else if deleteuser
+    ]);
+} elseif ($delUser) { //else if deleteuser
     $db->delete('users', $delUser);
-} 
+}
+
+//View Availability
+$viewAvail = filter_input(INPUT_POST, 'viewAvail', FILTER_UNSAFE_RAW);
+
 //elseif(!empty($upPassword)) {//esleif userupdate
 //     $db->update('users', ['password' => $upPassword], $forUpdateUser);
 // } elseif(!empty($upFirst)) {//esleif userupdate
@@ -78,7 +82,7 @@ if ($setUserName && $setPassword && $addFirstName && $addLastName && $addAddress
 //     $db->update('users', ['authLevel' => $upAuthLevel], $forUpdateUser);
 // }
 
-if($forUpdateUser) {
+if ($forUpdateUser) {
     $data = [
         'password' => $upPassword,
         'firstName' => $upFirst,
@@ -93,25 +97,28 @@ if($forUpdateUser) {
 }
 //switch between actions
 switch ($action) {
-    case "addUserAdmin" :
+    case "addUserAdmin":
         include('view/addUserAdmin.php');
         break;
-    case "updateUserAdmin" :
+    case "updateUserAdmin":
         $userUp = updateProfile($db, $userUpdate);
         include('view/updateUserAdmin.php');
         break;
-    case "userProfileAdmin" :
+    case "userProfileAdmin":
         $user = displayProfile($db, $userID);
         include('view/profileAdm.php');
         break;
-    case "timeOffAdmin" :
+    case "timeOffAdmin":
         include('view/timeOffAdm.php');
         break;
-    case "availAdmin" :
+    case "availAdmin":
         include('view/availabilityAdm.php');
         break;
-    case "scheduleAdmin" :
+    case "scheduleAdmin":
         include('view/scheduleAdm.php');
+        break;
+    case "viewAvail":
+        include('view/viewAvail.php');
         break;
     default:
         $users = $db->queryAll('users');

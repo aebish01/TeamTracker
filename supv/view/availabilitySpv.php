@@ -35,11 +35,11 @@
         $requests = new Request();
         ?>
 
-        <div class="gridItem availDescription">
-            <form action="" method="post">
+        <div class="gridItem availDescription requestToggle">
+            <form class="requestForm" method="post">
                 <button class="button" name="pending">Pending Time Off</button>
             </form>
-            <form action="" method="post">
+            <form class="requestForm" method="post">
                 <button class="button" name="approved">Approved Time Off</button>
             </form>
         </div>

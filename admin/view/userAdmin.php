@@ -55,6 +55,14 @@
                         <input class="enterID" type="text" name="deleteUserID" placeholder="Enter User ID To Delete" maxlength="11">
                         <button class="button">Delete User</button>
                     </form>
+
+                    <p></p>
+                    <form class="userChanges" action="." method="POST">
+                        <label>View Availability By ID:</label>
+                        <input class="enterID" type="text" name="viewAvail" id="viewAvail" placeholder="Enter User ID To View" maxlength="11">
+                        <button class="button" type="submit">View</button>
+                        <input type="hidden" name="action" value="viewAvail">
+                    </form>
                 </div>
 
                 <div></div>

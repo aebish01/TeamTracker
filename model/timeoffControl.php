@@ -25,7 +25,7 @@ if (isset($_POST["submit"])) {
                 header("Location: ../admin/");
                 break;
             case 2:
-                header("Location: ..");
+                header("Location: ../supv/");
                 break;
             default:
                 header("Location: ../employee/");
