@@ -81,6 +81,16 @@ CREATE TABLE `availability` (
   `sunTo` varchar(20) NOT NULL
 );
 
+CREATE TABLE `timeoff` (
+  `id` int(11) NOT NULL,
+  `uID` int(11) NOT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `message` varchar(720) DEFAULT NULL,
+  `approved` tinyint(1) NOT NULL DEFAULT 0
+);
+
 -- /* Populating database */
 -- /* INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
 -- VALUES ('dVu',  'dVuCSCI', 'Dr.', 'Vu', '1 FHSU Place', 1234567892, 'drvu@fhsu.edu', 'supervisor', '3', 'supervisor'), 
