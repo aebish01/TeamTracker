@@ -62,6 +62,25 @@ CREATE TABLE `user_time_slots` (
   FOREIGN KEY (`user_id`) REFERENCES `users`(userId)
 );
 
+CREATE TABLE `availability` (
+  `id` int(255) NOT NULL,
+  `userId` int(255) NOT NULL,
+  `monday` varchar(20) NOT NULL,
+  `monTo` varchar(20) NOT NULL,
+  `tuesday` varchar(20) NOT NULL,
+  `tuesTo` varchar(20) NOT NULL,
+  `wednesday` varchar(20) NOT NULL,
+  `wedTo` varchar(20) NOT NULL,
+  `thursday` varchar(20) NOT NULL,
+  `thuTo` varchar(20) NOT NULL,
+  `friday` varchar(20) NOT NULL,
+  `friTo` varchar(20) NOT NULL,
+  `saturday` varchar(20) NOT NULL,
+  `satTo` varchar(20) NOT NULL,
+  `sunday` varchar(20) NOT NULL,
+  `sunTo` varchar(20) NOT NULL
+);
+
 -- /* Populating database */
 -- /* INSERT INTO users (userName, password, firstName, lastName, address, phoneNumber, email, empType, authLevel, role) 
 -- VALUES ('dVu',  'dVuCSCI', 'Dr.', 'Vu', '1 FHSU Place', 1234567892, 'drvu@fhsu.edu', 'supervisor', '3', 'supervisor'), 
