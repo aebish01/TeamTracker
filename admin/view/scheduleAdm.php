@@ -31,42 +31,13 @@
 
 		<!-- The div elemnent to display the date currently being displayed -->
 		<div class="gridItem availDescription">
-			Monday Feb 23, 2023
+			Wednesday May 3, 2023
 		</div>
 		
 
-		<?php 
-			// Array to hold schedule data
-			$schedule = array();
-
-			// Loop through the results and add each row to schedule array
-			while ($row = mysqli_fetch_assoc($result)) {
-				$schedule[$row['start_time']] = $row['user_name'];
-			}
-		?>
-
-
-		<!-- The div element to display the schedule -->
-		<div class="gridItem schedule">
-
-		<!-- Schedule items for each hour -->
-		<?php
-		$hours = array('8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM');
-		foreach ($hours as $hour) {
-			echo '<div class="scheduleItems openHours"><p>' . $hour . '</p></div>';
-			if (isset($schedule[$hour])) {
-			echo '<div class="scheduleItems users">' . $schedule[$hour] . '</div>';
-			} else {
-			echo '<div class="scheduleItems"></div>';
-			}
-		}
-		?>
-
-		</div>
-
 
 		<!-- The div elemnent to display the schedule -->
-<!-- 		<div class="gridItem schedule">
+ 		<div class="gridItem schedule">
 
 			<div class="scheduleItems openHours"></div>
 			<div class="scheduleItems openHours">
@@ -109,9 +80,7 @@
 				<p>8:00 PM</p>
 			</div>
 
-			<div class="scheduleItems users">
-				<?php //echo $user['firstName'] ?>
-				<?php //echo $user['lastName'] ?></div>
+			<div class="scheduleItems users">Admin</div>
 			<div class="scheduleItems"></div>
 			<div class="scheduleItems"></div>
 			<div class="scheduleItems"></div>
@@ -126,7 +95,141 @@
 			<div class="scheduleItems"></div>
 			<div class="scheduleItems"></div>
 
-		</div> -->
+			<div class="scheduleItems users">bLoblaw</div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+
+			<div class="scheduleItems users">tParker</div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+
+			<div class="scheduleItems users">dVu</div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+
+			<div class="scheduleItems users">abish</div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+
+			<div class="scheduleItems users">abish1</div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+
+			<div class="scheduleItems users">bbunny</div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+
+			<div class="scheduleItems users">sjoe</div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+
+			<div class="scheduleItems users">ejames</div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+
+			<div class="scheduleItems users">jbravo</div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+			<div class="scheduleItems"></div>
+		</div>
 
 		<!-- <div class="gridItem userButtons">
 			<button class="button" onclick="addUser()">Add User</button>
